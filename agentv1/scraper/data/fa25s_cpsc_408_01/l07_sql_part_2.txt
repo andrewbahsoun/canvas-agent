@@ -1,0 +1,342 @@
+l07_sql_part_2
+Date: 2025-09-20
+
+--- Slide 1 ---
+- SQL Part 2
+- CPSC408
+ --- Slide 2 ---
+- Pre-Class Question
+- What are the 3 SQL sublanguages? What are they each used for?
+ --- Slide 3 ---
+- Data Manipulation Language
+ --- Slide 4 ---
+- DATA MANIPULATION LANGUAGE
+- Data Manipulation Language (DML) defines syntax to add, remove, and update data from existing tables.
+- Operations include:
+- - INSERT
+- - UPDATE
+- - DELETE
+ --- Slide 5 ---
+- INSERT
+- Consider the relation astronaut(astronautID,Name,Age)
+- We learned the DDL for creating this table would look something like this:
+- CREATE TABLE astronaut(
+- astronautID INT NOT NULL PRIMARY KEY,
+- Name VARCHAR(40),
+- Age INT
+- );
+ --- Slide 6 ---
+- INSERT
+- Consider the relation astronaut(astronautID,Name,Age)
+- INSERT INTO astronaut VALUES(1,'Ed Lu',60);
+- The above query inserts a new record into the astronaut table.
+ --- Slide 7 ---
+- INSERT
+- Suppose age attribute isn't defined as NOT NULL (AKA allows null values to be stored).
+- INSERT INTO astronaut(astronautID,Name) VALUES(2,'Scott
+- Kelly');
+- The above query inserts a new record into the astronaut table without an age value.
+ --- Slide 8 ---
+- INSERT
+- Primary Key violations result in record not being added to a table.
+- INSERT INTO astronaut(astronautID,Name) VALUES(2,'Mark Kelly');
+- Given astronautID 2 is already present in the table, the above query does not execute.
+ --- Slide 9 ---
+- INSERT
+- Primary Key violations result in record not being added to a table.
+- INSERT INTO astronaut(astronautID,Name) VALUES(2,'Mark Kelly');
+- Given astronautID 2 is already present in the table, the above query does not execute.
+ --- Slide 10 ---
+- INSERT
+- Multiple records can be inserted with a single insert statement as well.
+- INSERT INTO astronaut
+- VALUES (3,'Mark Kelly',50),
+- (4,'Peggy Whitson',55);
+- If there is a constraint violation in any of these new records, no new record is inserted into the table.
+ --- Slide 11 ---
+- INSERT
+- Q. Write a query to insert the following records in the astronaut table.
+- (10, Shannon Walker, )
+- (11, Sunita Williams, )
+- (12, Karen Nyberg, 51)
+ --- Slide 12 ---
+- INSERT
+- Q. Write a query to insert the following records in the astronaut table.
+- INSERT INTO astronaut VALUES
+- (10,'Shannon Walker',NULL),
+- (11,'Sunita Williams',NULL),
+- (12,'Karen Nyberg',51);
+ --- Slide 13 ---
+- UPDATE
+- Consider astronaut(astronautID, Name, Age)
+- UPDATE astronaut
+- SET Age = 50
+- WHERE Age IS NULL;
+- This Query will set age of astronaut to 50 if it was previously a null value.
+ --- Slide 14 ---
+- UPDATE
+- UPDATE astronaut
+- SET Age = 50;
+- An update statement without a WHERE clause will update every record in the table.
+- Some RDBMS restrict use of UPDATE without a condition.
+ --- Slide 15 ---
+- UPDATE
+- UPDATE astronaut
+- SET Age = 50,Name = 'Oleg Kotov'
+- WHERE Age IS NULL;
+- You can modify multiple attribute values if some condition is met.
+ --- Slide 16 ---
+- DELETE
+- Consider astronaut(astronautID,Name,Age)
+- DELETE FROM astronaut
+- WHERE Age = 51;
+- Remove all records from the astronaut table where age equals 51.
+ --- Slide 17 ---
+- DELETE
+- DELETE FROM astronaut;
+- Similar to UPDATE, the above will remove all records from the table (similar to TRUNCATE TABLE).
+ --- Slide 18 ---
+- DELETE
+- Q. Remove all records from the astronaut table where age is null.
+ --- Slide 19 ---
+- DELETE
+- Q. Remove all records from the astronaut table where age is null.
+- DELETE FROM astronaut
+- WHERE Age IS NULL;
+- Note that Age = NULL will not work here.
+ --- Slide 20 ---
+- Data Query Language
+ --- Slide 21 ---
+- Data Query Language
+- Data Query Language (DQL) defines a single operation (SELECT) that is used to retrieve information from tables.
+- Operators in relational algebra can be translated as clauses in a SELECT statement. Anything you can write in relational algebra, you can write in DQL using our select statement, and vice versa.
+ --- Slide 22 ---
+- Data Query Language
+- Our DQL queries will never alter data stored in our database. This means these queries are a great way to experiment and play around with this logic, because all you will ever be changing is your output and not anything in your system.
+- Again, DQL does not alter anything in any tuple, attribute, or relation in storage at rest. These queries just generate output.
+ --- Slide 23 ---
+- Data Query Language
+- We will cover the following DQL operations:
+- - SELECT
+- - FROM
+- - JOIN
+- - WHERE
+- - ORDER BY
+- - LIMIT
+- - UNION
+- - INTERSECT
+- - EXCEPT
+ --- Slide 24 ---
+- SELECT
+- SELECT attribute1, attribute2
+- FROM table;
+- A select statement will return some set of attributes from a table.
+ --- Slide 25 ---
+- SELECT
+- What will the result of this query on this table look like?
+Name	Agency	Expeditions Mark Kelly	NASA	2 Koichi Wakata	JAXA	5 Samantha Cristoforetti	ESA	2 Scott Kelly	NASA	1
+- SELECT Name
+- FROM Astronauts;
+ --- Slide 26 ---
+- SELECT Name Mark Kelly Koichi Wakata Samantha Cristoforetti Scott Kelly
+ --- Slide 27 ---
+- SELECT
+- SELECT *
+- FROM Employees;
+- You can use an asterisk (*) as a wildcard to return all attributes from a table. This will return the entire Employee table.
+ --- Slide 28 ---
+- SELECT
+- Q. Using the Chinook database in Datagrip, write a query to return all records from the albums table.
+ --- Slide 29 ---
+- SELECT
+- Q. Using the Chinook database in Datagrip, write a query to return all records from the albums table.
+- SELECT *
+- FROM albums;
+ --- Slide 30 ---
+- SELECT
+- SELECT Title, ArtistId, 5
+- FROM albums;
+- We can also pass constants in the list of attributes of our select like we did before.
+- This will just create a new column on the output with that constant value filled in for every row.
+ --- Slide 31 ---
+- SELECT
+- Q. Return all records from the artists table alongside the number 20 as a new attribute.
+ --- Slide 32 ---
+- SELECT
+- Q. Return all records from the artists table alongside the number 20 as a new attribute.
+- SELECT *, 20
+- FROM artists;
+ --- Slide 33 ---
+- SELECT
+- SELECT Title AS albumTitle,
+- ArtistId,
+- 5 AS number
+- FROM albums;
+- Use the AS operator in the SELECT clause to rename attributes in the result.
+ --- Slide 34 ---
+- SELECT
+- Q. Write a query to return the names of all composers from the tracks table. The Composer attribute should be renamed as Artist.
+ --- Slide 35 ---
+- SELECT
+- Q. Write a query to return the names of all composers from the tracks table. The Composer attribute should be renamed as Artist.
+- SELECT Composer AS Artist
+- FROM tracks;
+ --- Slide 36 ---
+- SELECT
+- SELECT DISTINCT Composer AS Artist
+- FROM tracks;
+- Use the DISTINCT operator with an attribute in the SELECT clause to only return unique values of that attribute
+ --- Slide 37 ---
+- SELECT
+- What will the result of this query on this table look like?
+Name	Agency	Expeditions Mark Kelly	NASA	2 Koichi Wakata	JAXA	5 Samantha Cristoforetti	ESA	2 Scott Kelly	NASA	1
+- SELECT DISTINCT Agency
+- FROM Astronauts;
+ --- Slide 38 ---
+- SELECT Agency NASA JAXA ESA
+ --- Slide 39 ---
+- SELECT
+- SELECT Total, Total/2
+- FROM invoices;
+- You can also perform simple arithmetic in the SELECT clause. This returns a table with the total amount in one column and half of the total amount in another column.
+ --- Slide 40 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM invoices
+- WHERE BillingCountry = 'USA';
+- Specify conditions in the where clause to filter records. This query returns only records from billing country USA.
+ --- Slide 41 ---
+- WHERE CLAUSE
+- Q. Write a query that returns the distinct billing cities from the invoices table where the billing country is Canada, and the invoice total is greater than $10.
+ --- Slide 42 ---
+- WHERE CLAUSE
+- Q. Write a query that returns the distinct billing cities from the invoices table where the billing country is Canada, and the invoice total is greater than $10.
+- SELECT DISTINCT BillingCity
+- FROM invoices
+- WHERE BillingCountry = 'Canada' AND total > 10;
+ --- Slide 43 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM invoices
+- WHERE BillingCountry IN ('USA', 'Canada');
+- Use the IN operator to search for multiple values of an attribute. This returns records from billing countries USA and Canada.
+ --- Slide 44 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM invoices
+- WHERE Total BETWEEN 10 AND 20;
+- Use the BETWEEN operator to search within a range. This query returns records where the invoice total lies between 10 and 20.
+- BETWEEN also works with date attributes, as well as alphabetically with text
+ --- Slide 45 ---
+- WHERE CLAUSE
+- Q. Write a query that returns the addresses of customers who reside in Brazil, Norway, or Germany, and have a customerId between 2 and 30.
+ --- Slide 46 ---
+- WHERE CLAUSE
+- Q. Write a query that returns the addresses of customers who reside in Brazil, Norway, or Germany, and have a customerId between 2 and 30.
+- SELECT Address
+- FROM customers
+- WHERE Country IN ('Brazil', 'Norway', 'Germany')
+- AND CustomerId BETWEEN 2 AND 30;
+ --- Slide 47 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE FirstName LIKE 'Harry';
+- Use the LIKE operator to search for substrings in attribute values given some pattern. This returns records for customers whose first name is Harry.
+ --- Slide 48 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE FirstName LIKE 'S%'
+- OR FirstName LIKE 'H _ _';
+- You can use percent (%) as a zero-to-many character length wildcard and underscore (_) as an exactly single character wildcard for your substring searches. This query will return all users whose name starts with S, or whose name starts with H and is exactly 3 characters long.
+ --- Slide 49 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE FirstName LIKE 'H _ _ %';
+- You can use a combination of both wildcards to specify a minimum length of a matching substring. This would return all first names that start with H and are at least 3 characters long.
+ --- Slide 50 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE FirstName LIKE 'H%';
+- LIKE is also case sensitive. This query would not result in a match if the FirstName value was "harry" instead of "Harry". To include both in your result, use an OR operator and include both options.
+ --- Slide 51 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE FirstName LIKE '%h';
+- The placement of your wildcard within your statement also matters. A % wildcard in the beginning of your LIKE argument will accept any string that ends in your pattern.
+ --- Slide 52 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE FirstName LIKE '%Alex%'
+- OR FirstName LIKE 'S%a';
+- A % wildcard on both sides of your argument will result in a full substring search, where the series of characters exists anywhere in your attribute. A % in the middle lets you specify the beginning and end must both match in one condition.
+ --- Slide 53 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE Email LIKE '% @ % . _ _ _';
+- You can get pretty creative with your combination of wildcard characters to do more complex substring searches. This is a rudimentary match for emails in the correct format.
+ --- Slide 54 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE Email NOT LIKE '% @ % . _ _ _';
+- You can also pair a LIKE operator with the NOT keyword to return the opposite condition. This will return all records where the email does NOT match our rudimentary email pattern.
+ --- Slide 55 ---
+- WHERE CLAUSE
+- Q. Write a query to return the customerId of customers whose first name begins with F and last name ends with an s.
+ --- Slide 56 ---
+- WHERE CLAUSE
+- Q. Write a query to return the customerId of customers whose first name begins with F and last name ends with an s.
+- SELECT customerID
+- FROM customers
+- WHERE FirstName LIKE 'F%'
+- AND LastName LIKE '%s';
+ --- Slide 57 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE Company IS NULL;
+- Use the IS NULL and IS NOT NULL operators to filter records on attribute values that are empty. This returns records for customers where the Company attribute value is missing.
+ --- Slide 58 ---
+- WHERE CLAUSE
+- SELECT *
+- FROM customers
+- WHERE State IS NOT NULL;
+- This returns records for customers where the State attribute explicitly has a value.
+ --- Slide 59 ---
+- ORDER BY
+ --- Slide 60 ---
+- ORDER BY
+- SELECT *
+- FROM invoices
+- ORDER BY Total ASC;
+- Use the ORDER BY clause to sort the resulting records by values of attributes in ascending or descending order using ASC or DESC. Ascending is our default if no order is provided.
+ --- Slide 61 ---
+- ORDER BY
+- SELECT BillingCountry,Total
+- FROM invoices
+- WHERE InvoiceDate > '2009-05-01'
+- ORDER BY total DESC, BillingCountry ASC;
+- You can provide more than one attribute to order by. This returns the countries and total for invoices posted after 2009-05-01. Records are sorted by Total descending first, and then if they have a matching total they are sorted by BillingCountry ascending.
+ --- Slide 62 ---
+- LIMIT
+ --- Slide 63 ---
+- LIMIT
+- SELECT *
+- FROM customers
+- LIMIT 10;
+- Use the LIMIT clause to limit the number of records you want to return in the result. The above returns the first 10 records on the customer table.
+ --- Slide 64 ---
+- LIMIT
+- SELECT BillingCountry, Total
+- FROM invoices
+- WHERE InvoiceDate > '2009-05-01'
+- ORDER BY TOTAL DESC
+- LIMIT 5;
+- This returns the first 5 countries of invoices posted after 2009-05-01 when sorted by total in descending order.

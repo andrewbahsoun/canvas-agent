@@ -1,0 +1,39 @@
+Chapter 6 :: Architecture 6.9-6.10 MIPS instructions Digital Design and Computer Architecture David Money Harris and Sarah L. Harris 6-<1>
+ High-Level Code Constructs statements - if statements - if/else loops - while loops - for
+ If Statement C Code MIPS assembly code # $s0 = f, $s1 = g, $s2 = h # $s3 = i, $s4 = j if (i == j) f = g + h;
+f = f - i;
+ If Statement C Code MIPS assembly code # $s0 = f, $s1 = g, $s2 = h # $s3 = i, $s4 = j if (i == j) bne $s3, $s4, L1 f = g + h; add $s0, $s1, $s2 f = f - i; L1: sub $s0, $s0, $s3 Assembly tests opposite case (i != j) of high-level code (i == j)
+ If/Else Statement C Code MIPS assembly code if (i == j) f = g + h;
+else f = f - i;
+ If/Else Statement C Code MIPS assembly code # $s0 = f, $s1 = g, $s2 = h # $s3 = i, $s4 = j if (i == j) bne $s3, $s4, L1 f = g + h; add $s0, $s1, $s2 else j done f = f - i; L1: sub $s0, $s0, $s3 done:
+ While Loops C Code MIPS assembly code // determines the power // of x such that 2x = 128 int pow = 1;
+int x = 0;
+while (pow != 128) { pow = pow * 2;
+x = x + 1;
+} Assembly tests for the opposite case (pow == 128) of the C code (pow != 128).
+ While Loops C Code MIPS assembly code // determines the power # $s0 = pow, $s1 = x // of x such that 2x = 128 int pow = 1; addi $s0, $0, 1 int x = 0; add $s1, $0, $0 addi $t0, $0, 128 while (pow != 128) { while: beq $s0, $t0, done pow = pow * 2; sll $s0, $s0, 1 x = x + 1; addi $s1, $s1, 1 } j while done:
+Assembly tests for the opposite case (pow == 128) of the C code (pow != 128).
+ For Loops for (initialization; condition; loop operation) statement executes before the loop begins - initialization:
+is tested at the beginning of each iteration - condition:
+executes at the end of each iteration - loop operation:
+executes each time the condition is met - statement:
+ For Loops C Code MIPS assembly code // add the numbers from 0 to 9 int sum = 0;
+int i;
+for (i=0; i!=10; i = i+1) { sum = sum + i;
+}
+ For Loops C Code MIPS assembly code // add the numbers from 0 to 9 # $s0 = i, $s1 = sum int sum = 0; addi $s1, $0, 0 int i; add $s0, $0, $0 addi $t0, $0, 10 for (i=0; i!=10; i = i+1) { for: beq $s0, $t0, done sum = sum + i; add $s1, $s1, $s0 } addi $s0, $s0, 1 j for done:
+ Addressing Modes How do we address the operands?
+- Register Only - Immediate - Base Addressing - PC-Relative - Pseudo Direct
+ Addressing Modes Register Only - Operands found in registers - Example:
+add $s0, $t2, $t3 - Example:
+sub $t8, $s1, $0 Immediate - 16-bit immediate used as an operand - Example:
+addi $s4, $t5, -73 - Example:
+ori $t3, $t7, 0xFF
+ Addressing Modes Base Addressing - Address of operand is:
+base address + sign-extended immediate - Example:
+lw $s4, 72($0) - address = $0 + 72 - Example:
+sw $t2, -25($t1) - address = $t1 - 25
+ Addressing Modes PC-Relative Addressing 0x10 beq $t0, $0, else 0x14 addi $v0, $0, 1 #else=3: (0x20-0x14)/40x18 addi $sp, $sp, i 0x1C jr $ra 0x20 else: addi $a0, $a0, -10x24 jal factorial Assembly Code Field Values op rs rt imm 4803 beq $t0, $0, else (beq $t0, $0, 3) 6 bits 5 bits 5 bits 5 bits 5 bits 6 bits
+ Addressing Modes Pseudo-direct Addressing 0x0040005C jal sum ...
+0x004000A0 sum: add $v0, $a0, $a1 JTA 00000000010000000000000010100000 (0x004000A0) 26-bit addr 00000000010000000000000010100000 (0x0100028) 0100028 Machine Code Field Values op imm op addr 30x010002800001100000100000000000000101000 (0x0C100028) 6 bits 26 bits 6 bits 26 bits
+ How to Compile & Run a Program High Level Code Compiler Assembly Code Assembler Object Files Object File Library Files Linker Executable Loader Memory

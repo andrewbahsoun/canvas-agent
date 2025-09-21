@@ -1,0 +1,2 @@
+6.11 Convert the following MIPS assembly code into machine language. Write the instructions in hexadecimal.
+addi $s0, $0, 73 sw $t1, -7($t2) sub $t1, $s7, $s2

@@ -1,0 +1,86 @@
+l01_introduction
+Date: 2025-09-20
+
+--- Slide 1 ---
+- CPSC 408
+- Database Management
+- Fall 2025
+- Sierra Clibourne
+ --- Slide 2 ---
+- Hi, I'm Sierra Clibourne!
+- Current role is a HR Information Systems Architect at Niagara Bottling
+- Graduated from Chapman in 2019 with a degree in computer science (Fun Fact: the last class before the creation of Fowler School of Engineering!)
+- Most Importantly: Makes a bunch of money doing what you are about to learn
+- See-AIR-ah KLY-born
+ --- Slide 3 ---
+- What I Did All Break:
+ --- Slide 4 ---
+- CPSC408
+- Covering:
+- Relational Databases
+- The Entity Relationship Model
+- Database Normalization
+- Implementing Database Applications in Python
+- SQLite
+- MySQL Server
+- Querying and Optimization
+- NoSQL
+ --- Slide 5 ---
+- CPSC408 - Format
+- Grading Percentages Breakdown:
+- Attendance/Participation/Quizzes 10 %
+- Assignments 30 %
+- Midterm 20 %
+- Final Project 20 %
+- Final Exam 20 %
+ --- Slide 6 ---
+- CPSC408 - Format
+- Grading Percentages Breakdown:
+- Attendance/Participation/Quizzes 10 %
+- Assignments 30 %
+- Midterm 20 %
+- Final Project 20 %
+- Final Exam 20 %
+- Attendance will not be taken past week 1, but you will be responsible for completing all in class assignments by their due dates unless you have otherwise coordinated with me
+ --- Slide 7 ---
+- CPSC408 - Format
+- Grading Percentages Breakdown:
+- Attendance/Participation/Quizzes 10 %
+- Assignments 30 %
+- Midterm 20 %
+- Final Project 20 %
+- Final Exam 20 %
+- Assignments take the form of either sets of problems or full programming projects. Programming assignments may be done in groups of two. Late assignments will not be accepted without at least a 24 hour in advance notice to my email.
+ --- Slide 8 ---
+- CPSC408 - Format
+- Grading Percentages Breakdown:
+- Attendance/Participation/Quizzes 10 %
+- Assignments 30 %
+- Midterm 20 %
+- Final Project 20 %
+- Final Exam 20 %
+- Our Midterm and Final Exam will be a set of written problems taking the format of multiple choice, short response, and database problem sets. You will have 75 for the Midterm and the usual 150 minutes for the Final. If you need accommodations please email me and the testing center.
+ --- Slide 9 ---
+- CPSC408 - Format
+- Grading Percentages Breakdown:
+- Attendance/Participation/Quizzes 10 %
+- Assignments 30 %
+- Midterm 20 %
+- Final Project 20 %
+- Final Exam 20 %
+- Our final project will be a fully implemented MySQL application with a front end of your choice. This will be a group project with 1-4 students per group and will span the entire last 8 weeks of the course. We will have multiple submission deadlines for various aspects of the project. Expect more details to come after the midterm
+ --- Slide 10 ---
+- CPSC408 - Format
+- Office Hours: Beginning on Monday of Week 2
+- Swenson Hall Study Room N206
+- M/W 8:30PM to 9:30PM
+ --- Slide 11 ---
+- CPSC408 - Format
+- Review of Syllabus
+ --- Slide 12 ---
+- Your Turn
+- Please Navigate to our class section's Canvas
+- Under Lecture 1, you will see a "Get to Know You" Link
+- Please mark that you are present and fill out your Major, Minor, and one of your favorite things (Movies, shows, music artists, books, games, anything!)
+- I am using this to take attendance and know who to drop, so this is a fair warning that you really should do it.
+- If you are on the waitlist, add your name to the bottom and see me after class!

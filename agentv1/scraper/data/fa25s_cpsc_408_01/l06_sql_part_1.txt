@@ -1,0 +1,377 @@
+l06_sql_part_1
+Date: 2025-09-20
+
+--- Slide 1 ---
+- SQL Part 1
+- CPSC408
+ --- Slide 2 ---
+- Pre-Class Question
+- How do you know which functional dependencies you fix in the 2nd normal form, which ones you fix in the 3rd normal form, and which ones are correct and stay as they are?
+ --- Slide 3 ---
+- Structured Query Language (SQL)
+- Structured Query Language (SQL) is the standard language for RDBMS (1986)
+- This query language provides CRUD operations to query and manipulate data stored in relational databases
+ --- Slide 4 ---
+- CRUD Operations
+- CREATE new tables, records, and rules in our database
+- READ tables, records, and rules from our database
+- UPDATE tables, records, and rules currently in our database
+- DELETE existing tables, records, and rules from our database
+ --- Slide 5 ---
+- Structured Query Language (SQL)
+- Operations in SQL can be broken into 3 subsections:
+- DDL - Data Definition Language
+- Refers to creation, alteration, and deletion of tables
+- DML - Data Manipulation Language
+- Refers to adding, updating, and removing data from tables
+- DQL - Data Query Language
+- Refers to querying data from tables
+ --- Slide 6 ---
+- SQLite
+- SQLite is the most widely used embedded database management system to date.
+- Embedded Database Systems are not themselves standalone apps, but libraries used to interface with local files in your application or program.
+- Due to this, SQLite is very lightweight and easy to implement into a small-to-medium application.
+ --- Slide 7 ---
+- SQLite
+- There are a couple downsides to SQLite.
+- There is no client-server connection, so multiple users on multiple devices and networks cannot treat it as a central source of truth and perform CRUD at the same time
+- It is locally stored so the size is dependent on what the local system can handle
+- It is missing some minor features available in most other RDBMS systems (type enforcement on columns, alter table functionality, etc.)
+ --- Slide 8 ---
+- SQLite Data Types
+- SQLite, instead of having strict data types, instead has what are called Type Affinities. All data types for columns and values in SQlite fall into one of these 5 categories
+- NULL
+- The value is a NULL value
+- INTEGER
+- The value is a signed integer, stored in 0, 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of the value.
+ --- Slide 9 ---
+- SQLite Data Types
+- REAL
+- The value is a floating point value, stored as an 8-byte IEEE floating point number.
+- TEXT
+- The value is a text string, stored using the database encoding (UTF-8, UTF-16BE or UTF-16LE).
+- BLOB
+- The value is a blob of data, stored exactly as it was input.
+ --- Slide 10 ---
+- SQLite Data Type Examples
+- INTEGER:
+- INT
+- INTEGER
+- TINYINT
+- SMALLINT
+- MEDIUMINT
+- BIGINT
+- UNSIGNED BIG INT
+- INT2
+- INT8
+- TEXT:
+- CHARACTER(20)
+- VARCHAR(255)
+- VARYING CHARACTER(255)
+- NCHAR(55)
+- NATIVE CHARACTER(70)
+- NVARCHAR(100)
+- TEXT
+- CLOB
+- NUMERIC:
+- NUMERIC
+- DECIMAL(10,5)
+- BOOLEAN
+- DATE
+- DATETIME
+- BLOB:
+- BLOB
+- no datatype specified
+- REAL:
+- REAL
+- DOUBLE
+- DOUBLE PRECISION
+- FLOAT
+ --- Slide 11 ---
+- Data Definition Language
+ --- Slide 12 ---
+- Data Definition Language
+- Data Definition Language (DDL) defines the syntax for creating and modifying database objects in an RDBMS
+- Key operations include:
+- CREATE - create new db objects
+- ALTER - alter existing db objects
+- DROP - remove existing db objects
+- TRUNCATE - delete records from db objects
+ --- Slide 13 ---
+- CREATE
+- The CREATE function is used to create database objects
+- CREATE DATABASE db_name; ( ~SQLite3)
+- CREATE TABLE tbl_name (...);
+- CREATE VIEW view_name AS ...;
+ --- Slide 14 ---
+- CREATE TABLE
+- The default syntax for creating a table is SQLite is this:
+- CREATE TABLE tbl_name (
+- attribute1 datatype,
+- attribute2 datatype,
+- ...
+- );
+ --- Slide 15 ---
+- Create Table
+- To create a table, you must ensure the following:
+- You must have a unique table name
+- The table must be a unique set of attributes with data types
+- You need to include the necessary constraints such as
+- Primary and foreign keys
+- Attribute constraints
+ --- Slide 16 ---
+- Create Table
+- CREATE TABLE astronaut (
+- astronautID INTEGER,
+- name VARCHAR(20),
+- age INTEGER
+- );
+- This command will create this blank table, with all relevant data types for each column.
+astronautID	name	age
+- Astronaut
+ --- Slide 17 ---
+- Create Table - Constraints
+- You can add Constraints to these attributes to give your table built-in functionality.
+- CREATE TABLE astronaut (
+- astronautID INTEGER,
+- name VARCHAR(20),
+- age INTEGER
+- );
+ --- Slide 18 ---
+- Create Table - Constraints
+- CREATE TABLE astronaut (
+- astronautID INTEGER NOT NULL,
+- name VARCHAR(20),
+- age INTEGER
+- );
+- NOT NULL - constraint to ensure that values for these records are never empty.
+ --- Slide 19 ---
+- Create Table - Constraints
+- CREATE TABLE astronaut (
+- astronautID INTEGER NOT NULL,
+- name VARCHAR(20),
+- age INTEGER,
+- PRIMARY KEY (astronautID)
+- );
+- PRIMARY KEY constraint specifies what attributes are the primary key for the table.
+ --- Slide 20 ---
+- Create Table - Constraints
+- CREATE TABLE astronaut (
+- astronautID INTEGER NOT NULL PRIMARY KEY,
+- name VARCHAR(20),
+- age INTEGER
+- );
+- PRIMARY KEY constraint can also be specified this way.
+ --- Slide 21 ---
+- Create Table
+- CREATE TABLE astronaut (
+- astronautID INTEGER NOT NULL PRIMARY KEY,
+- name VARCHAR(20),
+- age INTEGER,
+- agencyID INTEGER,
+- FOREIGN KEY (agencyID) REFERENCES agency(agencyID)
+- );
+ --- Slide 22 ---
+- Create Table
+- We want to make sure we always specify our foreign keys when creating our tables.
+- Allows us to see connections when using database software
+- Forces referential integrity. Our system will force the value in the foreign key column to be an existing value on the table it is referencing.
+- Will have system throw an error if you delete something from a table that is referenced elsewhere as a foreign key
+ --- Slide 23 ---
+- Create Table - Constraints
+- CREATE TABLE astronaut (
+- astronautID INTEGER AUTO_INCREMENT PRIMARY KEY,
+- name VARCHAR(20),
+- age INTEGER,
+- agencyID INTEGER
+- );
+- Auto Increment allows us to have our system handle assigning new values to new rows. You now no longer need to provide a value for astronautID, the system will automatically assign the next available.
+ --- Slide 24 ---
+- Create Table - Constraints
+- INSERT INTO astronaut(name, age, agencyID)
+- VALUES ('Buzz Aldrin', '82', 3);
+- The above query will give Buzz the next available astronaut ID available. If there were IDs 1-5 already taken, Buzz will now have astronautID 6
+ --- Slide 25 ---
+- Alter
+- The function Alter is used to alter database objects
+- ALTER TABLE tbl_name ...
+- This is used for:
+- Adding a new attribute
+- Modifying an attribute
+- Deleting an attribute
+ --- Slide 26 ---
+- ALTER TABLE (ADDING NEW ATTRIBUTE)
+- To add a new column to a table, this is the syntax.
+- ALTER TABLE astronaut
+- ADD COLUMN agency VARCHAR(10);
+ --- Slide 27 ---
+- ALTER TABLE (MODIFYING AN ATTRIBUTE)
+- You can also modify the data type of an attribute.
+- ALTER TABLE astronaut
+- MODIFY COLUMN agency VARCHAR(20);
+ --- Slide 28 ---
+- ALTER TABLE (DELETING AN ATTRIBUTE)
+- Finally, to delete an attribute from a table, use the delete function.
+- ALTER TABLE astronaut
+- DROP COLUMN agency;
+ --- Slide 29 ---
+- ALTER TABLE (Change Primary Key)
+- ALTER TABLE astronaut
+- DROP PRIMARY KEY;
+- ALTER TABLE astronaut
+- ADD PRIMARY KEY(name);
+- To change your primary key, you must do two steps where you first remove the old key, and then add the new one.
+ --- Slide 30 ---
+- DROP
+- The DROP function is used to delete database objects
+- DROP TABLE tbl_name;
+- Note that the once executed, the data in the table astronaut can not be recovered!
+ --- Slide 31 ---
+- DROP
+- DROP TABLE astronaut;
+- This will delete the data in the table and its schema.
+- TRUNCATE TABLE astronaut;
+- Keeps the table schema but deletes all records in it.
+ --- Slide 32 ---
+- Data Definition Language Practice
+ --- Slide 33 ---
+- Practice 1:
+- Using DDL, Create a table with the following schema:
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT of Seconds)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 34 ---
+- Practice 1:
+- CREATE TABLE Songs(
+- SongID INT NOT NULL PRIMARY KEY,
+- Title VARCHAR(20) NOT NULL,
+- Length INT,
+- Album VARCHAR(20) NOT NULL,
+- Rating INT
+- );
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 35 ---
+- Practice 1:
+- Using DDL, Add a new attribute Artist (VarChar(30) NOT NULL):
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT of Seconds)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 36 ---
+- Practice 1:
+- Using DDL, Add a new attribute Artist (VarChar(30) NOT NULL):
+- ALTER TABLE Songs
+- ADD COLUMN Artist VARCHAR(30) NOT NULL;
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT of Seconds)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 37 ---
+- Practice 1:
+- Using DDL, Modify attribute Title to be VARCHAR(40) instead of VARCHAR(20):
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT of Seconds)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 38 ---
+- Practice 1:
+- Using DDL, Modify attribute Title to be VARCHAR(40) instead of VARCHAR(20):
+- ALTER TABLE Songs
+- MODIFY COLUMN Title VARCHAR(40) NOT NULL;
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT of Seconds)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 39 ---
+- Practice 1:
+- Using DDL, Remove Attribute Rating:
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT of Seconds)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 40 ---
+- Practice 1:
+- Using DDL, Remove Attribute Rating:
+- ALTER TABLE Songs
+- DROP COLUMN Rating;
+SongID (Primary Key, INT, Not Null)	Title (VarChar (20), Not Null)	Length (INT of Seconds)	Album (VarChar(20), NotNull)	Rating (INT)
+ --- Slide 41 ---
+- Data Manipulation Language
+ --- Slide 42 ---
+- DATA MANIPULATION LANGUAGE
+- Data Manipulation Language (DML) defines syntax to add, remove, and update data from existing tables.
+- Operations include:
+- - INSERT
+- - UPDATE
+- - DELETE
+ --- Slide 43 ---
+- INSERT
+- Consider the relation astronaut(astronautID,Name,Age)
+- We learned the DDL for creating this table would look something like this:
+- CREATE TABLE astronaut(
+- astronautID INT NOT NULL PRIMARY KEY,
+- Name VARCHAR(40),
+- Age INT
+- );
+ --- Slide 44 ---
+- INSERT
+- Consider the relation astronaut(astronautID,Name,Age)
+- INSERT INTO astronaut VALUES(1,'Ed Lu',60);
+- The above query inserts a new record into the astronaut table.
+ --- Slide 45 ---
+- INSERT
+- Suppose age attribute isn't defined as NOT NULL (AKA allows null values to be stored).
+- INSERT INTO astronaut(astronautID,Name) VALUES(2,'Scott
+- Kelly');
+- The above query inserts a new record into the astronaut table without an age value.
+ --- Slide 46 ---
+- INSERT
+- Primary Key violations result in record not being added to a table.
+- INSERT INTO astronaut(astronautID,Name) VALUES(2,'Mark Kelly');
+- Given astronautID 2 is already present in the table, the above query does not execute.
+ --- Slide 47 ---
+- INSERT
+- Primary Key violations result in record not being added to a table.
+- INSERT INTO astronaut(astronautID,Name) VALUES(2,'Mark Kelly');
+- Given astronautID 2 is already present in the table, the above query does not execute.
+ --- Slide 48 ---
+- INSERT
+- Multiple records can be inserted with a single insert statement as well.
+- INSERT INTO astronaut
+- VALUES (3,'Mark Kelly',50),
+- (4,'Peggy Whitson',55);
+- If there is a constraint violation in any of these new records, no new record is inserted into the table.
+ --- Slide 49 ---
+- INSERT
+- Q. Write a query to insert the following records in the astronaut table.
+- (10, Shannon Walker, )
+- (11, Sunita Williams, )
+- (12, Karen Nyberg, 51)
+ --- Slide 50 ---
+- INSERT
+- Q. Write a query to insert the following records in the astronaut table.
+- INSERT INTO astronaut VALUES
+- (10,'Shannon Walker',NULL),
+- (11,'Sunita Williams',NULL),
+- (12,'Karen Nyberg',51);
+ --- Slide 51 ---
+- UPDATE
+- Consider astronaut(astronautID, Name, Age)
+- UPDATE astronaut
+- SET Age = 50
+- WHERE Age IS NULL;
+- This Query will set age of astronaut to 50 if it was previously a null value.
+ --- Slide 52 ---
+- UPDATE
+- UPDATE astronaut
+- SET Age = 50;
+- An update statement without a WHERE clause will update every record in the table.
+- Some RDBMS restrict use of UPDATE without a condition.
+ --- Slide 53 ---
+- UPDATE
+- UPDATE astronaut
+- SET Age = 50,Name = 'Oleg Kotov'
+- WHERE Age IS NULL;
+- You can modify multiple attribute values if some condition is met.
+ --- Slide 54 ---
+- DELETE
+- Consider astronaut(astronautID,Name,Age)
+- DELETE FROM astronaut
+- WHERE Age = 51;
+- Remove all records from the astronaut table where age equals 51.
+ --- Slide 55 ---
+- DELETE
+- DELETE FROM astronaut;
+- Similar to UPDATE, the above will remove all records from the table (similar to TRUNCATE TABLE).
+ --- Slide 56 ---
+- DELETE
+- Q. Remove all records from the astronaut table where age is null.
+ --- Slide 57 ---
+- DELETE
+- Q. Remove all records from the astronaut table where age is null.
+- DELETE FROM astronaut
+- WHERE Age IS NULL;
+- Note that Age = NULL will not work here.

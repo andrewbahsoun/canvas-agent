@@ -1,0 +1,27 @@
+Installation Guide Python 3.x 1. Visit https://www.python.org/downloads/ and download the latest version of Python 2. If you are on a Mac, open the downloaded .pgk file and follow the instructions.
+3. For Windows users, when you run the installer, make sure to add Python executable to the system PATH. It's a checkbox that you will find during the installation process.
+4. Also ensure you have a Python development environment set up. My preference is Visual Studio Code with the default Python extension, which you can find here https://code.visualstudio.com/ DataGrip DataGrip is a database IDE that is suited precisely for working with databases and SQL scripts.
+While the front-end application work can be done in VS Code, we will be using DataGrip to connect to SQLite and MySQL servers to communicate directly with the databases.
+1. Visit https://www.jetbrains.com/community/education/#students to apply for an education license. This allows you to skip the 30-day trial period.
+2. Visit https://www.jetbrains.com/datagrip/ and download and install the IDE.
+Sqlite31. Mac users don't need to install anything new as sqlite3 comes preinstalled with Mac OS.
+2. For Windows users:
+a. Download the Binaries:
+i. Go to the official SQLite download page.
+ii. Find the "Precompiled Binaries for Windows" section and download the latest sqlite-tools-win-x64-*.zip or sqlite-tools-win-x86-*.zip file.
+b. Extract the Files:
+i. Create a new folder on your computer at C:\sqlite.
+ii. Extract the contents of the downloaded ZIP file into this C:\sqlite folder.
+You will find sqlite3.exe, sqldiff.exe, and sqlite3_analyzer.exe inside.
+c. Add to PATH Environment Variable:
+i. Open the System Properties window by typing "Edit the system environment variables" into the Windows search bar.
+ii. Click on "Environment Variables...".
+iii. In the "System variables" section, find and select the Path variable, then click "Edit...".
+iv. Click "New" and add the path to your SQLite folder (e.g., C:\sqlite).
+ d. Verify the Installation:
+i. Close any open command prompt windows.
+ii. Open a new command prompt.
+iii. Type sqlite3 --version and press Enter.
+iv. If the installation was successful, the command will execute and display the SQLite version number.
+Chinook.db The Chinook database is an open source sample SQLite database that we will be using to practice our SQL on. We will have several assignments that require you to query this database.
+1. Download the chinook.db file from canvas and place it in a new empty directory you will remember the location of 2. Open Datagrip and create a new project. In the left hand menu of your project (Database Explorer), navigate in the upper menu to + -> Data Source -> SQLite 3. Under the File option, navigate to the chinook.db file location 4. Download any missing drivers if you get the prompt to, and hit okay. Hit the refresh button on the left hand menu. You should now see the data source on the left and be able to navigate the tables in the menu

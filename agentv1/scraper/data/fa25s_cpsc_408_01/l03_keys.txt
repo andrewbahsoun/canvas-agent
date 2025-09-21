@@ -1,0 +1,248 @@
+l03_keys
+Date: 2025-09-20
+
+--- Slide 1 ---
+- Keys
+- CPSC408
+ --- Slide 2 ---
+- Pre-Class Question
+- What is the cardinality of these relationships on this ER diagram?
+- Chef
+- Restaurant
+- Order
+- Customer
+- Attends
+- Cooks
+- Places
+- Employs
+ --- Slide 3 ---
+- Keys
+- In relational databases, a key is used to uniquely identify a tuple in a relation. Each row in a table must have a unique value for their key.
+- Keys can be one attribute or a set of some attributes from a table.
+ --- Slide 4 ---
+- Keys
+- A key is also used to establish and identify relationships between relations.
+- Tables will borrow keys from each other to establish that there exists a relationship between them (e.g. which student is in which class?)
+ --- Slide 5 ---
+- Keys
+- Consider the relation PatientInfo.
+- If we say that a key for this table is PatientID, then if two tuples have the same PatientID they must also have the same values for the rest of their attributes.
+PatientID	Name	Age	Phone 1	Jane	25	777 1	Jane	25	777 3	Jack	35	555 4	John	25	444
+- Note: If you see an attribute on a table is underlined, that means it is the key of that table
+ --- Slide 6 ---
+- Keys
+- If we altered these rows to have different data but the same PatientID, it would be impossible to insert these records into a database.
+- Two rows can never have the same key but different non-key attribute values.
+PatientID	Name	Age	Phone 1	Jane	25	777 1	Josie	37	999 3	Jack	35	555 4	John	25	444
+ --- Slide 7 ---
+- Keys
+- In our tables, there can be more than one attribute or set of attributes that are unique to each row.
+- A Primary Key is the attribute or set of attributes that we have decided we will be using to determine if tuples are unique.
+- If we see multiple candidates and are having trouble picking, we have a process we can use to determine which should be the primary key.
+ --- Slide 8 ---
+- Super Keys
+- First, we identify the super keys. The Super Keys of a table are a list of all possible attributes or attribute sets that could be used to tell two rows apart.
+- Every option in our list of super keys could theoretically become a primary key if needed, and we will narrow this list down to eventually pick one.
+ --- Slide 9 ---
+- Super Keys
+- Consider the relation PatientInfo again.
+PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 10 ---
+- Super Keys
+- The Super Keys are:
+- - {patientID}
+- - {phone}
+- - {patientID, name}
+- - {patientID, age}
+- - {patientID, phone}
+- - {phone, name}
+- - {name, age}
+- - {phone, age}
+- - {patientID, name, age}
+- - {phone, name, age}
+- - {patientID, phone, name, age} PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 11 ---
+- Candidate Keys
+- The Candidate Keys (or minimal superkeys) are the set of all super keys that contain the least possible number of attributes that still uniquely identify a record.
+- We always want to make sure that, if there is a key available to us that uses as few attributes as possible, we are picking that to be our key.
+ --- Slide 12 ---
+- Candidate Keys
+- Super Key list:
+- - {patientID}
+- - {phone}
+- - {patientID, name}
+- - {patientID, age}
+- - {patientID, phone}
+- - {phone, name}
+- - {phone, age}
+- - {patientID, name, age}
+- - {phone, name, age}
+- - {patientID, phone, name, age} PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 13 ---
+- Candidate Keys
+- Super Key list:
+- - {patientID}
+- - {phone}
+- - {patientID, name}
+- - {patientID, age}
+- - {patientID, phone}
+- - {phone, name}
+- - {phone, age}
+- - {patientID, name, age}
+- - {phone, name, age}
+- - {patientID, phone, name, age} PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 14 ---
+- Candidate Keys
+- Super Key list:
+- - {patientID}
+- - {phone}
+- - {patientID, name}
+- - {patientID, age}
+- - {patientID, phone}
+- - {phone, name}
+- - {phone, age}
+- - {patientID, name, age}
+- - {phone, name, age}
+- - {patientID, phone, name, age} PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 15 ---
+- Candidate Keys
+- Super Key list:
+- - {patientID}
+- - {phone}
+- - {patientID, name}
+- - {patientID, age}
+- - {patientID, phone}
+- - {phone, name}
+- - {phone, age}
+- - {patientID, name, age}
+- - {phone, name, age}
+- - {patientID, phone, name, age} PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 16 ---
+- Candidate Keys
+- The Candidate Keys are:
+- - {patientID}
+- - {phone} PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 17 ---
+- Primary Key
+- The candidate key most guaranteed to uniquely identify each record is should then be the primary key of a relation. We select which key will be our primary key by picking the attribute most likely to remain unique when the table gains rows over time.
+- If the primary key consists of more than one attribute even after going through this process, then it is called a composite key.
+ --- Slide 18 ---
+- Primary Key
+- The Candidate Keys are:
+- - {patientID}
+- - {phone}
+- Which should be our primary key?
+PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 19 ---
+- Primary Key
+- The Candidate Keys are:
+- - {patientID}
+- - {phone}
+- Which should be our primary key?
+PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	444
+ --- Slide 20 ---
+- Primary Key
+- Suppose that more data is made available
+- and patients from the same households DO
+- have the same phone number recorded.
+- What will be the candidate keys now?
+PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	777
+ --- Slide 21 ---
+- Primary Key
+- Suppose that more data is made available
+- and patients from the same households DO
+- have the same phone number recorded.
+- What will be the candidate keys now?
+- Just {PatientID} !
+PatientID	Name	Age	Phone 1	Jane	25	777 2	Jane	40	778 3	Jack	35	555 4	John	25	777
+ --- Slide 22 ---
+- Primary Key
+- Now, consider this relation of Patients.
+- What are the super keys and candidate keys?
+Name	Age	Phone Jane	20	777 Jane	40	778 Jack	25	555 Jim	25	778
+- Not unique
+ --- Slide 23 ---
+- Primary Key
+- To get the most out of the relational model, a primary key is necessary no matter what.
+- If you're looking at your table and nothing is feeling like a good solution, you can and should create your own primary key by adding a new attribute Name	Age	Phone Jane	20	777 Jane	40	778 Jack	25	555 Jim	25	778
+ --- Slide 24 ---
+- Primary Key
+- To get the most out of the relational model, a primary key is necessary no matter what.
+- If you're looking at your table and nothing is feeling like a good solution, you can and should create your own primary key by adding a new attribute pID	Name	Age	Phone 1	Jane	20	777 2	Jane	40	778 3	Jack	25	555 4	Jim	25	778
+ --- Slide 25 ---
+- Foreign Keys
+ --- Slide 26 ---
+- Foreign Keys
+- To highlight a relationship between two relations, a primary key of one relation can be used as a non-unique attribute for another relation.
+- Any attribute that is they key of one table and is borrowed by another table to establish a relationship is called a foreign key.
+ --- Slide 27 ---
+- Foreign Keys - Quick Example
+- Consider the relations Astronauts and AgencyEmployees.
+astroID	Name	Age 1	Andre Kuiper	62 2	Peggy Whitson	61 3	Sunita Williams	55 agencyID	Name	Astronaut 1	ESA	Andre Kuiper 2	NASA	Peggy Whitson 3	NASA	Sunita Williams
+ --- Slide 28 ---
+- Foreign Keys - Quick Example
+- It seems inefficient that we are storing astronaut name in so many places.
+- What if an astronaut changes their name? What if it accidentally gets misspelled on one table? We can lose that link of who works where and would need to do manual data cleaning :( astroID	Name	Age 1	Andre Kuiper	62 2	Peggy Whitson	61 3	Sunita Williams	55 agencyID	Name	Astronaut 1	JAXA	Andre Kuiper 2	NASA	Peggy Whitson 3	NASA	Sunita Williams
+ --- Slide 29 ---
+- Foreign Keys - Quick Example
+- We can instead codify this relationship by implementing a foreign key.
+- This will allow us to always have one row point to a specific row in another table no matter how many times that row changes, and we get to not store duplicate data everywhere!
+astroID	Name	Age 1	Andre Kuiper	62 2	Peggy Whitson	61 3	Sunita Williams	55 agencyID	Name	Astronaut 1	JAXA	Andre Kuiper 2	NASA	Peggy Whitson 3	NASA	Sunita Williams
+ --- Slide 30 ---
+- Foreign Keys - Quick Example
+- We can take the astroID from the Astronauts table and place it on the AgencyEmployees table, and that way we know which astronaut is in which agency.
+astroID	Name	Age 1	Andre Kuiper	62 2	Peggy Whitson	61 3	Sunita Williams	55 agencyID	Name	astroID* 1	ESA	1 2	NASA	2 3	NASA	3
+- Astronauts (Parent Relation)
+- AgencyEmployees (Child Relation)
+ --- Slide 31 ---
+- Foreign Keys - Quick Example
+- On this table, astroID is the Primary Key astroID	Name	Age 1	Andre Kuiper	62 2	Peggy Whitson	61 3	Sunita Williams	55 agencyID	Name	astronautID* 1	ESA	1 2	NASA	2 3	NASA	3
+- Astronauts (Parent Relation)
+- AgencyEmployees (Child Relation)
+- On this table, astroID is a Foreign Key.
+ --- Slide 32 ---
+- Foreign Keys - Quick Example agencyID	Name	astronautID* 1	ESA	1 2	NASA	2 3	NASA	3
+- Primary keys are annotated with an underline on relation schemas, while foreign keys are annotated with an asterisk (*)
+ --- Slide 33 ---
+- Practice:
+- Consider the following Relation.
+- Identify the Super Keys + Candidate Keys, and pick a Primary Key.
+MovieID	Title	ReleaseDate	Director 1	Peppa Pig: The Movie	2022-01-01	Stanley Kubrick 2	Spongebob 8	2022-01-01	Paul Thomas Anderson 3	Fantastic 5	1967-01-01	Stanley Kubrick
+ --- Slide 34 ---
+- Practice:
+MovieID	Title	ReleaseDate	Director 1	Peppa Pig: The Movie	2022-01-01	Stanley Kubrick 2	Spongebob 8	2022-01-01	Paul Thomas Anderson 3	Fantastic 5	1967-01-01	Stanley Kubrick
+- Super Keys:
+- {MovieID}
+- {Title}
+- {MovieID, Title}
+- {MovieID, ReleaseDate}
+- {MovieID, Director}
+- {Title, ReleaseDate}
+- {Title, Director}
+- {MovieID, Title, ReleaseDate}
+- {MovieID, ReleaseDate, Director}
+- {MovieID, Title, Director}
+- {Title, ReleaseDate, Director}
+- {MovieID, Title, ReleaseDate, Director}
+ --- Slide 35 ---
+- Practice:
+MovieID	Title	ReleaseDate	Director 1	Peppa Pig: The Movie	2022-01-01	Stanley Kubrick 2	Spongebob 8	2022-01-01	Paul Thomas Anderson 3	Fantastic 5	1967-01-01	Stanley Kubrick
+- Candidate Keys:
+- {MovieID}
+- {Title}
+ --- Slide 36 ---
+- Practice:
+MovieID	Title	ReleaseDate	Director 1	Peppa Pig: The Movie	2022-01-01	Stanley Kubrick 2	Spongebob 8	2022-01-01	Paul Thomas Anderson 3	Fantastic 5	1967-01-01	Stanley Kubrick
+- Primary Key:
+- {MovieID}
+ --- Slide 37 ---
+- Lightning Round: What's the Key?
+ --- Slide 38 ---
+- Lightning Round: What's the Key?
+- purchase_number
+ --- Slide 39 ---
+- Lightning Round: What's the Key?
+ --- Slide 40 ---
+- Lightning Round: What's the Key?
+- Could theoretically be any of them, but
+- I'd make a new one, Character ID

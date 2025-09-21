@@ -1,0 +1,11 @@
+labreporttemplate_ceng351_docx
+Date: 2025-09-21
+
+# Lab #x. Group 1. Student A & Student B ## Introduction What is the purpose of the lab? What did you do?
+## Screenshots Make sure to include all requested screenshots. Caption the screenshots to make clear what they are showing. This section should convince me that you completed the lab successfully.
+Ex:
+Plots showing the results we're looking for! OR This schematic shows the simulation of the step Prof. Harrison asked for. Etc.
+## Lab Questions Include the questions and answers to your questions. Include whatever evidence or reasoning you feel are necessary to justify your answer.
+## Troubleshooting In this short section you should describe any problems you had while completing the lab and what you did to solve them. It's okay if "talking to prof. Harrison" or something similar is your solution. Even if you don't think you had any issues, think hard and reflect on the process. It is very rare in engineering that everything goes right the first time. If you truly had no problems with the lab, do not remove this section, but simply put "N/A" or "We did not encounter any problems".
+## Conclusions Please include a brief concluding paragraph. This paragraph should summarize what you did as well as what you learned or your "takeaways" from the lab.
+## Partner Contributions Please indicate which lab partners worked on which parts of the lab. Partner contributions should be roughly equal over the course of the semester

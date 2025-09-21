@@ -1,0 +1,381 @@
+l04_normalization
+Date: 2025-09-20
+
+--- Slide 1 ---
+- Database Normalization
+- Database Management
+- CPSC 408
+ --- Slide 2 ---
+- Data Redundancy
+- Data Redundancy is unnecessary repetition of data within a table in your database.
+- This can cause a large amount of issues:
+- Increase in database storage size
+- Insertion, Deletion, and Update Anomalies
+- If you have followed the rules of creating ER Diagrams and Schemas, these will be rare, but we must know how to identify and remove them [Notes]
+- TO DO: change names
+ --- Slide 3 ---
+- Data Redundancy emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13 [Notes]
+- TO DO: change names
+ --- Slide 4 --- emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13
+- Observing Data Redundancy
+ --- Slide 5 ---
+- Problem 1: Increases Size of DB emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13
+- Having to store the same data over and over is not efficient, and leads to a larger database than needed when the data is at rest in storage
+ --- Slide 6 ---
+- Problem 2: Insertion Anomaly emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13 108	Jim	Halpert	71000	Satmford	106	1998-02-13
+- Let's say we want to add another employee: Jim Halpert who works in the Stamford branch, we will have to repeat all the same branch data again
+- If we have 100 more employees, we will have to repeat this data for all of them as well… lots of room for error!
+- This is the insertion anomaly
+ --- Slide 7 ---
+- Problem 3: Deletion Anomaly emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13 108	Jim	Halpert	71000	Satmford	106	1998-02-13
+- If we look at our table we can see we are storing two different "types" (or entities) of data on one table - data about employees and data about the branch
+- If we start deleting employees…
+ --- Slide 8 ---
+- Problem 3: Deletion Anomaly emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13
+- If we look at our table we can see we are storing two different "types" (or entities) of data on one table - data about employees and data about the branch
+- If we start deleting employees…
+ --- Slide 9 ---
+- Problem 3: Deletion Anomaly emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09
+- If we look at our table we can see we are storing two different "types" (or entities) of data on one table - data about employees and data about the branch
+- If we start deleting employees…
+- We can lose data about our branches!
+ --- Slide 10 ---
+- Problem 3: Deletion Anomaly emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date
+- When we get rid of our last employee, we have also unintentionally lost all info about our branches
+- This is the deletion anomaly.
+ --- Slide 11 ---
+- Problem 4: Updating Anomaly
+- Let's say Dwight is named the branch manager for Scranton
+- We must update the branch manager and manager start date for every employee in the Scranton branch
+- This is a lot of repetitive work and leaves room for errors, and is the update anomaly emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 100	David	Wallace	250000	Corporate	100	2006-02-09 101	Jan	Levinson	110000	Corporate	100	2006-02-09 102	Michael	Scott	75000	Scranton	109	2021-02-09 103	Angela	Martin	63000	Scranton	109	2021-02-09 104	Kelly	Kapoor	55000	Scranton	109	2021-02-09 105	Stanley	Hudson	69000	Scranton	109	2021-02-09 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13 108	Jim	Halpert	71000	Satmford	106	1998-02-13 109	Dwight	Kurt Schrute III	60000	Scranton	109	2021-02-09
+ --- Slide 12 ---
+- Data Redundancy
+- So now, we have seen how Data Redundancy is unnecessary repetition of data within a table in your database that causes issues when we move to a production environment.
+- Increase in database storage size
+- Insertion, Deletion, and Update Anomalies [Notes]
+- TO DO: change names
+ --- Slide 13 ---
+- Database Normalization is a technique used to organize data into multiple related tables in order to minimize data redundancy
+- We can split our original table into two different tables (one per entity) and each will only hold its own relevant data
+- How can Normalization Help?
+- Existing Employee table
+- New Employee table
+- New Branch Table
+ --- Slide 14 ---
+- Existing Employee table
+- New Employee table
+- New Branch Table emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13 108	Jim	Halpert	71000	Stamford	106	1998-02-13 emp_id	first_name	last_name	salary	branch_ID* 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 108	Jim	Halpert	71000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+ --- Slide 15 ---
+- Existing Employee table
+- New Employee table
+- New Branch Table emp_id	first_name	last_name	salary	branch_name	branch_manager	mgr_start_date 102	Michael	Scott	75000	Scranton	102	1992-04-06 103	Angela	Martin	63000	Scranton	102	1992-04-06 104	Kelly	Kapoor	55000	Scranton	102	1992-04-06 105	Stanley	Hudson	69000	Scranton	102	1992-04-06 106	Josh	Porter	78000	Stamford	106	1998-02-13 107	Andy	Bernard	65000	Stamford	106	1998-02-13 108	Jim	Halpert	71000	Stamford	106	1998-02-13 emp_id	first_name	last_name	salary	branch_ID* 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 108	Jim	Halpert	71000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+- *Notice we now need a new foreign key to tie them back together
+ --- Slide 16 ---
+- New Employee table
+- Branch Table emp_id	first_name	last_name	salary	branch_ID* 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 108	Jim	Halpert	71000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+- What Normalization Does and Doesn't Do
+- We will still have some repetition, but only the necessary ones. Remember, normalization is about minimizing redundancy, not eliminating all repetition!
+[Notes]
+- We still need corresponding branch IDs to know which employee works at which branch, however, these tables are now normalized because we minimized the redundant information
+ --- Slide 17 ---
+- Now Let's Try Adding, Deleting, and Updating Rows
+ --- Slide 18 ---
+- New Employee table
+- Branch Table emp_id	first_name	last_name	salary	branch_ID 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+- Inserting
+ --- Slide 19 ---
+- New Employee table
+- Branch Table emp_id	first_name	last_name	salary	branch_ID 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+- Inserting
+ --- Slide 20 ---
+- New Employee table
+- Branch Table emp_id	first_name	last_name	salary	branch_ID 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 108	Jim	Halpert	71000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+- Inserting
+ --- Slide 21 ---
+- New Employee table
+- Branch Table emp_id	first_name	last_name	salary	branch_ID 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 108	Jim	Halpert	71000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+- Inserting
+- Before we had to add all the branch info on top of employee info, now we can just add the branch_ID code and that will be matched to the corresponding branch in our branch table.
+- Our insert anomalies are now gone!
+ --- Slide 22 ---
+- New Employee table
+- Branch Table emp_id	first_name	last_name	salary	branch_ID 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 108	Jim	Halpert	71000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	106	1998-02-13
+- Deleting
+- Even if we delete ALL employees from the Stamford branch, we still have the info on the Stamford branch in our branch table - we don't accidentally lose data not related to the employee
+- Our Deletion Anomalies are now gone!
+ --- Slide 23 ---
+- New Employee table
+- Branch Table emp_id	first_name	last_name	salary	branch_ID 102	Michael	Scott	75000	2 103	Angela	Martin	63000	2 104	Kelly	Kapoor	55000	2 105	Stanley	Hudson	69000	2 106	Josh	Porter	78000	3 107	Andy	Bernard	65000	3 108	Jim	Halpert	71000	3 branch_id	branch_name	branch_manager	mgr_start_date 1	Corporate	100	2006-02-09 2	Scranton	102	1992-04-06 3	Stamford	107	2021-02-09
+- Modifying
+- We only have to change the branch manager info in one spot as opposed to applying this change to many rows any time our branch manager changes
+- Our Update Anomalies are now gone!
+- Make Jim the new branch manager
+ --- Slide 24 ---
+- Normal Forms
+ --- Slide 25 ---
+- Functional dependency (FD): When the value of one column of a table can be used to determine the value of another column of your table.
+- Primary Key: The attributes(s) that we have chosen to uniquely identify a row
+- Composite Key: If a primary key consists of more than one column, the key is a composite key
+- First, review relevant ideas one more time:
+ --- Slide 26 ---
+- 1st Normal Form
+- 2nd Normal Form
+- 3rd Normal Form
+- BCNF (Boyce-Codd normal form)
+- Also known as 3.5 Normal Form
+- Types of Normalization
+ --- Slide 27 ---
+- 1st Normal Form (1NF)
+ --- Slide 28 ---
+- To be in the first normal form, a table must follow four rules:
+- Each row's individual attributes must only contain one value. We can say the values of a single cell must be atomic
+- All Values of a single column must be of the same domain
+- All columns must have their own unique name
+- The order of your columns must not matter
+- This is the "Data Cleanup" Normal Form
+- How to Achieve 1st Normal Form
+ --- Slide 29 ---
+- Take for example the table here. We have three columns, with col1 as the primary key. We also have 5 rows.
+- How to Achieve 1st Normal Form col1	col2	col2 A	W, X	23 B	Y, Z	45 C	X	34 D	Z	abc E	Y	67
+ --- Slide 30 ---
+- Rule 1: Each value must be atomic
+- In col2 we have two rows violating this rule
+- Rule 2: Values in each column must be of the same type
+- In column age, one of the values is of type string while the rest of the values are type integer, therefore violating this rule
+- How to Achieve 1st Normal Form col1	col2	col2 A	W, X	23 B	Y, Z	45 C	X	34 D	Z	abc E	Y	67
+ --- Slide 31 ---
+- Rule 3: Each column must have a unique name
+- We have two columns named col2 in this table, which violates this rule
+- Rule 4: The order in which you store your columns should not matter (Which is fine here, just something to look out for)
+- How to Achieve 1st Normal Form col1	col2	col2 A	W, X	23 B	Y, Z	45 C	X	34 D	Z	abc E	Y	67
+ --- Slide 32 ---
+- How to Achieve 1st Normal Form: Simple Example ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+ --- Slide 33 ---
+- Is This Table in 1st Normal Form?
+ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+- Rule 4
+- Does order matter?
+ --- Slide 34 ---
+- Is This Table in 1st Normal Form?
+ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+- Rule 4 ✅
+- Rule 3
+- Does each column have a unique name?
+ --- Slide 35 ---
+- Is This Table in 1st Normal Form?
+ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+- Rule 4 ✅
+- Rule 3 ✅
+- Rule 2
+- Are values in each column of the same type?
+ --- Slide 36 ---
+- Is This Table in 1st Normal Form?
+ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+- Rule 4 ✅
+- Rule 3 ✅
+- Rule 2 ✅
+- Rule 1
+- Is there only one value per column?
+ --- Slide 37 ---
+- Is This Table in 1st Normal Form?
+ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+- Rule 4 ✅
+- Rule 3 ✅
+- Rule 2 ✅
+- Rule 1 ❌
+ --- Slide 38 ---
+- How Do We Fix This? Break up the values into new rows ID	name	subjects 101	Sierra	CPSC-308 101	Sierra	CPSC-408 105	Erik	CPSC-393 105	Erik	CPSC-392 103	Rene	CPSC-408 103	Rene	CPSC-350 102	Elizabeth	CPSC-230
+- 1st Normal Form Instructors table ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+ --- Slide 39 ---
+- How Do We Fix This? Break up the values into new rows ID	name	subject 101	Sierra	CPSC-308 101	Sierra	CPSC-408 105	Erik	CPSC-393 105	Erik	CPSC-392 103	Rene	CPSC-408 103	Rene	CPSC-350 102	Elizabeth	CPSC-230
+- 1st Normal Form Instructors table ID	name	subjects 101	Sierra	CPSC-308, CPSC-408 105	Erik	CPSC-393, CPSC-392 103	Rene	CPSC-408, CPSC-350 102	Elizabeth	CPSC-230
+- Instructors table
+- *Note: When we do this, our primary key is no longer unique. We need to now add a column to the primary key for this table going forward, which here must be
+- (ID, subjects).
+ --- Slide 40 ---
+- When you have moved any database from one normal form to the next, you must always pause and identify all tables and what their primary and foreign keys are before moving to the next form.
+- You will be unable to go to the next form without doing this for reasons that will soon become obvious.
+- Normal Form End State
+ --- Slide 41 ---
+- We went from this:
+- Instructors(ID, name, subjects)
+- To our new state, which is this:
+- Instructors(ID, name, subject)
+- Normal Form End State
+ --- Slide 42 ---
+- 2nd Normal Form (2NF)
+ --- Slide 43 ---
+- To be in second Normal Form, a table must follow two rules:
+- Rule 1: the table should already be in 1NF
+- Rule 2: The table should not have any Partial-Key Dependencies
+- Partial-Key Dependency: If a table has a composite key, and any non-key column on the table is functionally dependent on only a part of that composite key instead of all of it.
+- Rules for 2nd Normal Form [Notes] We know that all non-key columns should be determined by either a primary, super, or composite key Patrial dep happens when we're dealing w/ multiple column key (super or composite) & non-key field is dependent on only a subset of the multiple keys and NOT all of them
+ --- Slide 44 ---
+- What is a Partial-Key Dependency? Example 1
+- enrollment table
+- So, what should the key be for Enrollment Table?
+student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+- Enrollments
+ --- Slide 45 ---
+- What is a Partial-Key Dependency? Example 1 student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+- A composite key of student_ID and subject_ID!
+- Enrollments
+ --- Slide 46 ---
+- What is a Partial-Key Dependency? Example 1
+- Here are our functional dependencies that I am asserting:
+- student_ID → student_name
+- subject_ID → subject_name, college
+- student_ID, subject_ID → subject_name, student_name, college
+ --- Slide 47 ---
+- What is a Partial-Key Dependency? Example 1 student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+- So, we have our primary key, what's the problem?
+- Well, it seems our composite key is just a band-aid trying to squeeze two entities into one table: students and subjects.
+ --- Slide 48 ---
+- What is a Partial-Key Dependency? Example 1
+- For example, what is the subject name of CPSC-308?
+student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+ --- Slide 49 ---
+- What is a Partial-Key Dependency? Example 1
+- For example, what is the subject name of CPSC-308?
+- If you were able to tell me this without me telling you what student ID I was referring to, we can know for sure subject name does not depend on student_ID student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+ --- Slide 50 ---
+- What is a Partial-Key Dependency? Example 1
+- Since student_ID is part of the primary key, this is an example of a partial-key dependency.
+- Subject_name depends on only part of our key, and therefore that attribute should move to a table where that is the only primary key student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+ --- Slide 51 ---
+- What is a Partial-Key Dependency? Example 1
+- Back to our functional dependencies:
+- student_ID → student_name
+- subject_ID → subject_name, college
+- (student_ID, subject_ID) → subject_name, student_name, college
+- Since our composite key is (student_ID, subject_ID), and these top two dependencies are only dependent on part of the key, these are partial-key dependencies.
+- This is the hint that is telling you that maybe this table should actually be split into multiple tables.
+ --- Slide 52 ---
+- What is a Partial-Key Dependency? Example 1
+- To know how we are going to split these tables, answer me this:
+- What is the cardinality between students and subjects?
+student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+ --- Slide 53 ---
+- What is a Partial-Key Dependency? Example 1
+- Many-to-Many: Each student has many subjects and each subject has many students.
+- Therefore we know when we break this into two tables we will need a table in between to maintain that relationship student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-308	Enterprise DM	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros
+ --- Slide 54 ---
+- Fixing the Partial-Key Dependencies subject_ID	subject_name	college CPSC-308	Enterprise Data Management	Fowler CPSC-393	Machine Learning	Fowler MGSC-209	Introductory Business Statistics	Argyros student_ID	student_name 1	Rob 2	Keith 4	Miley student_ID	subject_ID	subject_name	student_name	college 1	CPSC-308	Enterprise DM	Rob	Fowler 2	CPSC-393	Machine Learning	Keith	Fowler 2	CPSC-350	Data Structures	Keith	Fowler 4	MGSC-209	Biz Stats	Miley	Argyros student_ID*	subject_ID* 1	CPSC_308 2	CPSC_393 2	CPSC_308 4	MGSC_209
+- Enrollments
+- Students
+- Subjects
+- Enrollments
+ --- Slide 55 ---
+- Not all composite keys are bad, though. Take this grades table for example.
+- student_ID, subject_ID → grade
+- Example of a Correctly Used Composite Key student_ID	subject_ID	grade 1	CPSC-308	A 1	CPSC-393	B- 2	CPSC-308	C+
+- Grades
+ --- Slide 56 ---
+- Not all composite keys are bad, though. Take this grades table for example.
+- student_ID, subject_ID → grade
+- Since any individual grade depends on both the student taking the course and the course that was taken, there are no partial-key dependencies and this table fits in 2NF
+- Example of a Correctly Used Composite Key student_ID	subject_ID	grade 1	CPSC-308	A 1	CPSC-393	B- 2	CPSC-308	C+
+- Grades
+ --- Slide 57 ---
+- 3rd Normal Form (3NF)
+ --- Slide 58 ---
+- To be in third Normal Form, a table must follow two rules:
+- Rule 1: The table should be in 2NF
+- Rule 2: The table should not have any Transitive (or Non-Key) Dependencies
+- Transitive (Non-Key) Dependencies: If any non-key column of a table is functionally dependent on another non-key column, that is a transitive dependency. This is one of Armstrong's Axioms.
+- Rules for 3rd Normal Form
+ --- Slide 59 --- Tournament Name	Year	Winner	Winner DOB Indiana Invitation	2020	Al Fredrickson	07-21-1975 Cleveland Open	2021	Bob Albertson	09-28-1968 Des Moines Masters	2021	Al Fredrickson	07-21-1975 Indiana Invitation	2021	Chip Masterson	03-14-1977
+- What is Transitive (Non-Key) Dependency?
+- Tournaments [Notes] What is the key in this tournament table
+ --- Slide 60 --- Tournament Name	Year	Winner	Winner DOB Indiana Invitation	2020	Al Fredrickson	07-21-1975 Cleveland Open	2021	Bob Albertson	09-28-1968 Des Moines Masters	2021	Al Fredrickson	07-21-1975 Indiana Invitation	2021	Chip Masterson	03-14-1977
+- What is Transitive (Non-Key) Dependency?
+- Tournaments
+- Here is our Composite Key [Notes] What is the key in this tournament table
+ --- Slide 61 ---
+- What is Transitive (Non-Key) Dependency?
+- Here are our functional dependencies:
+- Tournament Name, Year → Winner, Winner DOB
+- Winner → Winner DOB [Notes] What is the key in this tournament table
+ --- Slide 62 --- Tournament Name	Year	Winner	Winner DOB Indiana Invitation	2020	Al Fredrickson	07-21-1975 Cleveland Open	2021	Bob Albertson	09-28-1968 Des Moines Masters	2021	Al Fredrickson	07-21-1975 Indiana Invitation	2021	Chip Masterson	03-14-1977
+- What is Transitive (Non-Key) Dependency?
+- Tournaments
+- Winner DOB is determined by Winner, and Winner is not even an attribute in our key at all. This appears to be a sneaky entity trying to squeeze into a table again.
+[Notes] What is the key in this tournament table
+ --- Slide 63 --- Tournament Name	Year	Winner ID* Indiana Invitation	2020	1 Cleveland Open	2021	2 Des Moines Masters	2021	1 Indiana Invitation	2021	3
+- Tournaments
+- Getting Rid of this Transitive Dependency
+- We can create a separate table to hold the winner information, ensuring the cardinality of the relationship is maintained like always. Winners to Tournaments is One-to-Many, therefore the Winner ID goes on the Tournament Table.
+Winner ID	Name	DOB 1	Al Fredrickson	07-21-1975 2	Bob Albertson	09-28-1968 3	Chip Masterson	03-14-1977
+- Winners
+ --- Slide 64 --- Tournament Name	Year	Winner ID* Indiana Invitation	2020	1 Cleveland Open	2021	2 Des Moines Masters	2021	1 Indiana Invitation	2021	2
+- Tournaments
+- Getting Rid of this Transitive Dependency
+- This has an added benefit. We can now store information on competitors even if they have never won a tournament just by repurposing the winners table into a racers table.
+Racer ID	Name	DOB 1	Al Fredrickson	07-21-1975 2	Bob Albertson	09-28-1968 3	Chip Masterson	03-14-1977
+- Racer
+ --- Slide 65 ---
+- Boyce-Codd Normal Form (BCNF) AKA 3.5NF [Notes] Upgraded version of third normal form
+ --- Slide 66 ---
+- To be in BCNF, a table must follow two rules:
+- Rule 1: The table should be in 3NF
+- Rule 2: A non-key should not determine a key or a subset of a composite key
+- AKA: For all functional dependencies in a table, everything to the left of the arrow must be a key
+- Rules for BCNF
+ --- Slide 67 ---
+- BCNF (3.5NF) Example
+- What should be the primary key here?
+- Assume for the sake of this argument that any professor can only teach one course student_ID	subject_ID	Professor 10	CPSC-408	Sierra 10	CPSC-230	Elia 30	CPSC-408	Goldie 40	CPSC-408	Sierra
+- Enrollment
+ --- Slide 68 ---
+- BCNF (3.5NF) Example student_ID	subject_ID	Professor 10	CPSC-408	Sierra 10	CPSC-230	Elia 30	CPSC-408	Goldie 40	CPSC-408	Sierra
+- Enrollment
+- The values in the professor column are dependent on student_ID and subject_ID:
+- student_ID, subject_ID → Professor
+- BUT, we can also say per our assumption:
+- Professor → subject_id
+- A non-key column determining a key or part of a key does not satisfy rule 2 of BCNF
+ --- Slide 69 ---
+- (Surprise!!) Split that table!
+- How to achieve BCNF (3.5NF) student_ID	Professor_ID* 10	1 10	2 30	3 40	1 prof_ID	professor	Subject 1	Sierra	CPSC-408 2	Elia	CPSC-230 3	Goldie	CPSC-408
+- Professors
+- Students
+ --- Slide 70 ---
+- We Made It!!
+ --- Slide 71 ---
+- But unfortunately there are also 4th, 5th and 6th Normal Forms
+ --- Slide 72 ---
+- But we won't be talking about them!
+ --- Slide 73 ---
+- Primary Key: The individual column you choose to maintain uniqueness for all the rows
+- Composite Key: A key made up of more than one column
+- Summary of Key Terminology
+ --- Slide 74 ---
+- Functional Dependency: relationship between two attributes, typically between the Primary Key and other non-key attributes within a table.
+- Partial-Key Dependency: a non-key attribute is dependent on a subset of a composite key
+- Transitive (Non-Key) Dependency: a non-key attribute is dependent on another non-key attribute
+- Summary of Dependencies
+ --- Slide 75 ---
+- 1NF:
+- Each column in each row contains one single value
+- Values in each column are of the same type
+- Each column has a unique name
+- Order does not matter
+- 2NF: No Partial-Key Dependencies
+- 3NF: No Transitive (Non-Key) dependencies
+- BCNF: No Keys that depend on Non-Keys
+- Summary of Normal Forms
+ --- Slide 76 ---
+- One more reminder: At the end of each step, before you move on to the next step, you need to stop and assess what the keys of your current tables are as it stands. Overall steps:
+- Put Tables in 1NF, Identify Keys, Identify Functional Dependencies
+- Put Tables in 2NF, Identify Keys, Identify Functional Dependencies
+- Put Tables in 3NF, Identify Keys, Identify Functional Dependencies,
+- etc.
+- Summary of Normal Forms
+ --- Slide 77 ---

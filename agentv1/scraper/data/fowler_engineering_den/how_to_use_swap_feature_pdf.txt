@@ -1,0 +1,19 @@
+Page 1 of 4 Undergraduate Reference Guide for Using the SWAP Function STUDENTCENTER.CHAPMAN.EDU Found under 'Manage Classes" tile - SWAP FEATURE - The SWAP feature allows you to replace one class with another and ensures that you are enrolled in an open course before dropping you from the other. When a course that you would like to add has a waitlist, we suggest using the SWAP feature to enroll in an open course and place yourself on the waitlist of another. If you get off the waitlist, the system will automatically drop you from the class you indicate and add you to your preferred class.
+We strongly recommend adding an open class first and THEN setting up a SWAP with the waitlisted class. You CANNOT set up a SWAP if you add the waitlisted class first.
+To use the SWAP feature, follow these steps:
+- Enroll in open classes FIRST - you must first be enrolled in an open class and then set up a SWAP with your waitlisted course.
+As a general rule, when you add classes to your shopping cart, make sure to toggle on the "Add to o waitlist if class is full?" - this will make it easier to use the SWAP if the class is waitlisted by the time you register:
+Student Center- Managing Classes- Undergraduate, 3/2/22
+ Page 2 of 4 - Once you are enrolled in open courses, select the SWAP open on the left as show above - The first step is click on Class Search and Enroll, and choose the term you'd like to search. In this example, we will search for classes in Spring 2022:
+- This will take you to the Swap Classes window:
+- Select the course from your schedule that you want to drop if you get into a waitlisted course:
+Student Center- Managing Classes- Undergraduate, 3/2/22
+ Page 3 of 4 - Once you choose your class, you can either choose a class in your shopping cart (recommended), or search for a class using the class search:
+- When you two choices are selected, click on the "Search" button in the right-hand top corner:
+- You will be asked to confirm your classes to swap, and if correct, click "Submit":
+Student Center- Managing Classes- Undergraduate, 3/2/22
+ Page 4 of 4 - Then you confirm one last time:
+- If successful, you will receive this message:
+Final thoughts on the SWAP feature:
+- When adding your preferred class to your shopping cart, make sure to toggle on the "Add to Waitlist if class is full" - If you get off the waitlist, you will be automatically dropped from your indicated class and added to the other - We recommend using the SWAP tool when trying to switch from one section of a class to a different section of - the same class (ex. Switching from SPAN 101- section 01 to SPAN 101- section 02) or switch from one class to another class at the same time - Keep track of which classes you set a SWAP for! You will be responsible for any schedule changes made as a result of using the SWAP feature.
+Student Center- Managing Classes- Undergraduate, 3/2/22

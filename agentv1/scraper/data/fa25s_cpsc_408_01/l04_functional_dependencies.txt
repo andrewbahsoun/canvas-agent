@@ -1,0 +1,155 @@
+l04_functional_dependencies
+Date: 2025-09-20
+
+--- Slide 1 ---
+- FUNCTIONAL DEPENDENCIES
+- CPSC 408
+ --- Slide 2 ---
+- Pre-Class Question
+- What were the three different ways we implement relationship cardinality when converting from ER diagram to Schema?
+ --- Slide 3 ---
+- FUNCTIONAL DEPENDENCY
+- X → Y (X functionally determines Y) is an assertion about a relation R
+ --- Slide 4 ---
+- FUNCTIONAL DEPENDENCY
+- X → Y (X functionally determines Y) is an assertion about a relation R
+- Whenever two tuples of R agree on attribute(s) X, then they must also agree on attribute(s) Y.
+ --- Slide 5 ---
+- FUNCTIONAL DEPENDENCY
+- X → Y (X functionally determines Y) is an assertion about a relation R
+- Whenever two tuples of R agree on attribute(s) X, then they must also agree on attribute(s) Y.
+- Example: ISBN determines Book Title. SSN determines Name, Address, DOB
+ --- Slide 6 ---
+- FUNCTIONAL DEPENDENCY
+- Think of it this way: If two rows have the same X value, then they MUST also have the same Y value.
+- If I know the value of X attribute for some row on a table, I can go to my database and look up the value of Y attribute with absolute certainty.
+ --- Slide 7 ---
+- FUNCTIONAL DEPENDENCY
+- We can split the right hand side when writing these annotations to determine individual dependencies.
+- SSN determines Name, Address, DOB
+ --- Slide 8 ---
+- FUNCTIONAL DEPENDENCY
+- We can split the right hand side when writing these annotations to determine individual dependencies.
+- SSN determines Name, Address, DOB
+- SSN → Name
+- SSN → Address
+- SSN → DOB
+ --- Slide 9 ---
+- FUNCTIONAL DEPENDENCY
+- Consider the relation Astronaut(Name, Expeditions, Agency, Age, Country) Name	Expeditions	Agency	Age	Country Mark Kelly	2	NASA	54	USA Koichi Wakata	1	JAXA	45	Japan Sergei Krikalev	5	RSA	61	Russia Scott Kelly	3	NASA	51	USA
+ --- Slide 10 ---
+- FUNCTIONAL DEPENDENCY Name	Expeditions	Agency	Age	Country Mark Kelly	2	NASA	54	USA Koichi Wakata	1	JAXA	45	Japan Sergei Krikalev	5	RSA	61	Russia Scott Kelly	3	NASA	51	USA
+- What functional dependencies can you assert here?
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+ --- Slide 11 ---
+- FUNCTIONAL DEPENDENCY
+- 1. Name → Expeditions, Age, Agency, Country
+- 2. Agency → Country
+ --- Slide 12 ---
+- FUNCTIONAL DEPENDENCY Name	Expeditions	Agency	Age	Country Mark Kelly	2	NASA	54	USA Koichi Wakata	1	JAXA	45	Japan Sergei Krikalev	5	RSA	61	Russia Scott Kelly	3	NASA	51	USA
+- What functional dependencies can you NOT assert here?
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+ --- Slide 13 ---
+- FUNCTIONAL DEPENDENCY
+- We CANNOT say that, for example, Agency → Age.
+- I cannot determine the age of any astronaut just by knowing the agency they work for, because we see one person at NASA is 51 and another is 54.
+- Even though they agree on our X, they do not agree on Y and therefore you cannot say X determines Y
+ --- Slide 14 ---
+- Let's get crazy with it
+- Consider this relation:
+- R(A, B, C, D, E)
+- What functional dependencies could be asserted for our relation?
+- Remember, if I could use the value of X to find Y, then X → Y A	B	C	D	E a1	b1	c1	d1	e1 a2	b1	c2	d2	e1 a3	b2	c1	d1	e1 a4	b2	c2	d2	e1 a5	b3	c3	d1	e1
+ --- Slide 15 ---
+- Let's get crazy with it
+- A → B, C, D, E
+- (or A → B, A → C, A → D, and A → E)
+- A is always a unique value
+- A → E, B → E, C → E, D → E
+- No matter what, E is the same value
+- B, C → A, D, E
+- B, C will always have a unique combination
+- B, D → A, C, E
+- B, D will always have a unique combination A	B	C	D	E a1	b1	c1	d1	e1 a2	b1	c2	d2	e1 a3	b2	c1	d1	e1 a4	b2	c2	d2	e1 a5	b3	c3	d1	e1
+ --- Slide 16 ---
+- FDs - Coincidence or Dependency?
+- We want to be careful in making sure that we are not asserting functional dependencies that are only coincidental in our sample data.
+- It can often appear as though a functional dependency exists when looking at a few rows, but the meaning of that functional dependency is nonsense.
+ --- Slide 17 ---
+- Coincidence or Dependency?
+- Let's return to this example Name	Expeditions	Agency	Age	Country Mark Kelly	2	NASA	54	USA Koichi Wakata	1	JAXA	45	Japan Sergei Krikalev	5	RSA	61	Russia Scott Kelly	3	NASA	51	USA
+ --- Slide 18 ---
+- FDs - Coincidence or Dependency?
+- Using just this example data, you could argue following functional dependency:
+- Age → Name, Expeditions, Agency, Country
+ --- Slide 19 ---
+- FDs - Coincidence or Dependency?
+- Age → Name, Expeditions, Agency, Country
+- The thing is, do we want people who happen to have the same age to be forced to have the same name and work for the same agency?
+- Probably not.
+ --- Slide 20 ---
+- FDs - Coincidence or Dependency?
+- Age → Name, Expeditions, Agency, Country
+- Coincidences in examples are not Functional Dependencies.
+- Ask yourself:
+- Do I always want this to be true?
+- Can I think of a normal situation where this wouldn't be true?
+ --- Slide 21 ---
+- FDs - Coincidence or Dependency?
+- That is why this previous example was a bad example (Sorry!)
+- Someone could insert a row
+- (a1, b1, c1, d1, e2)
+- and blow up our whole FD list for all we know.
+A	B	C	D	E a1	b1	c1	d1	e1 a2	b1	c2	d2	e1 a3	b2	c1	d1	e1 a4	b2	c2	d2	e1 a5	b3	c3	d1	e1
+ --- Slide 22 ---
+- INFERENCE RULES (Armstrong's axioms)
+- Functional Dependencies can often work similarly to algebra, and therefore they have their own set of axioms that control their behavior.
+ --- Slide 23 ---
+- INFERENCE RULES (Armstrong's axioms)
+- 1. If Y is subset of X, then X → Y (Reflexive)
+- 2. If X → Y then XZ → YZ (Augmentation)
+- 3. If X → Y and Y → Z then X → Z (Transitive)
+- 4. If X → YZ then X → Y and X → Z (Decomposition)
+- 5. If X → Y and X → Z then X → YZ (Union)
+- 6. If X → Y and YZ → W then XZ → W (Pseudo Transitive)
+ --- Slide 24 ---
+- INFERENCE RULES - Reflexive
+- 1. If Y is subset of X, then X → Y (Reflexive)
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+- If I tell you the Name, Age, and Country of an astronaut, you should be able to functionally determine their Age.
+- Name, Age, Country → Age
+ --- Slide 25 ---
+- INFERENCE RULES - Augmentation
+- 2. If X → Y then XZ → YZ (Augmentation)
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+- If Agency determines Country, that must also mean that Name and Agency can also tell me Name and Country
+- If Agency → Country
+- Then Name, Agency → Name, Country
+ --- Slide 26 ---
+- INFERENCE RULES - Transitive
+- 3. If X → Y and Y → Z then X → Z (Transitive)
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+- If Name determines Agency and Agency determines Country, then I can tell you an Astronaut's Country from just their Name.
+- If Name → Agency and Agency → Country
+- Then Name → Country
+ --- Slide 27 ---
+- INFERENCE RULES - Decomposition
+- 4. If X → YZ then X → Y and X → Z (Decomposition)
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+- If Name determines Expeditions and Age, then Name determines Expeditions and Name determines Age.
+- If Name → Expeditions, Age
+- Then Name → Expeditions and Name → Age
+ --- Slide 28 ---
+- INFERENCE RULES - Union
+- 5. If X → Y and X → Z then X → YZ (Union)
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+- If Name determines Agency and Name determines Age, then Name determines Agency and Age
+- If Name → Agency and Name → Age
+- Then Name → Agency, Age
+ --- Slide 29 ---
+- INFERENCE RULES - Pseudo Transitive
+- 6. If X → Y and YZ → W then XZ → W (Pseudo Transitive)
+- Astronaut(Name, Expeditions, Agency, Age, Country)
+- If Name determines Agency, and Agency and Age determines Country, then Name and Age determines country.
+- If Name → Agency and Agency, Age → Country
+- Then Name, Age → Country

@@ -1,0 +1,24 @@
+truth_theories_from_hospers_docx
+Date: 2025-09-20
+
+Truth Theories
+- The meaning of "True" in logic
+- The word "true" is used in many senses. But in logic true is a characteristic of propositions, i.e., declarative sentences.
+- Propositions (declarative sentences) says something about an independent reality, sometimes called states of affairs. States of affairs (reality) occur or exits in the world even if no one reports their occurrence in language. Their existence is independent of language, but we must use language to describe them.
+- A true proposition describes a state of affairs that occurs, will occur, or did occur --- present, future, or past.
+- "There are forty chairs in this room" describes a state of affairs.
+- Truth theories:
+- Truth as Correspondence:
+- A proposition is true if the linguistic terms correspond with a factual state of affairs. This is also called a denotational theory of meaning; a linguistic term has meaning if it stands for something in reality (states of affairs).
+- Example: "The instructor is standing in front of the classroom."
+- Is there a problem with this theory?
+- Truth as Coherence (logical consistency):
+- A proposition is true if it is logically consistent or coheres with other true propositions. Logically consistent or logically coheres means that true propositions are mutually supporting to one another.
+- Example: Five witnesses who do not know one another each testify that Mr. White was at King's Fish House in Anaheim, CA on September 9th between 6:00 and 8:00 PM. Therefore, Mr. White could not have killed Mrs. Johnson. These propositional testimonies are all mutually supporting or cohere together.
+- Is there a problem with this theory?
+- Truth as Pragmatic (It works):
+- A true proposition is shown to be true in practical circumstances.
+- Examples:
+- The car will not start. I surmise that the problems is the battery. I replace the battery, making the proposition ("The car would not start because of the low battery").
+- "Atomic theory" as a physical world view allows us to control and predict physical events at the atomic level, chemical (table of elements), and the macro ("real world") levels.
+Truth Theories from Hospers.docx

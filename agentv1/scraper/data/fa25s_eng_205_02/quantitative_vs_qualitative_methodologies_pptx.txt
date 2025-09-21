@@ -1,0 +1,40 @@
+quantitative_vs_qualitative_methodologies_pptx
+Date: 2025-09-20
+
+--- Slide 1 --- # Quantitative vs. Qualitative Methodologies
+- Quantitative vs. Qualitative Methodologies
+- Comparison of Two Major Research Approaches
+ --- Slide 2 --- # Definition Overview
+- Definition Overview
+- Quantitative: Numerical, measurable, hypothesis-driven research.
+- Qualitative: Descriptive, exploratory, meaning-based research.
+ --- Slide 3 --- # Quantitative Methodology
+- Quantitative Methodology
+- Deductive approach: Theory → Hypothesis → Test
+- Data: Numbers, closed-ended questions
+- Methods: Surveys, experiments, structured observations
+- Analysis: Statistical tests (e.g., regression, ANOVA)
+- Strengths: Objectivity, generalizability, replicability
+ --- Slide 4 --- # Qualitative Methodology
+- Qualitative Methodology
+- Inductive approach: Observation → Patterns → Theory
+- Data: Words, open-ended responses
+- Methods: Interviews, focus groups, ethnography
+- Analysis: Thematic, narrative, content analysis
+- Strengths: Rich detail, contextual understanding, meaning-making
+ --- Slide 5 --- # Key Differences
+- Key Differences
+- Quantitative: Focus on 'how much', 'how many'
+- Qualitative: Focus on 'how', 'why', 'what is the meaning'
+- Quantitative: Large samples; Qualitative: Small, purposive samples
+- Quantitative: Statistical analysis; Qualitative: Interpretive analysis
+ --- Slide 6 --- # Mixed Methods
+- Mixed Methods
+- Combines both quantitative and qualitative approaches.
+- Example: Surveys for general trends + Interviews for deeper insight.
+ --- Slide 7 --- # Sources and References
+- Sources and References
+- Creswell, J. W. (2014). Research Design: Qualitative, Quantitative, and Mixed Methods Approaches.
+- Denzin, N. K., & Lincoln, Y. S. (2018). The SAGE Handbook of Qualitative Research.
+- Babbie, E. (2020). The Practice of Social Research.
+- Neuman, W. L. (2013). Social Research Methods: Qualitative and Quantitative Approaches.

@@ -1,0 +1,210 @@
+research_concept_pptx
+Date: 2025-09-20
+
+--- Slide 1 --- # The research conceptbyCurt McCombs
+- The research conceptbyCurt McCombs
+ --- Slide 2 --- # Table of Contents
+- Table of Contents
+- Research Concept Components
+- Logical Form of the Argumentative Essay
+- Documentation Methods --- Examples
+- Critical Methodologies
+- Quantitative vs Qualitative
+- Illustration of Different Methodologies:
+- "When in Doubt Shout" ---- An Application of Critical Methods
+- Methodic Doubt and Critical Thinking ---- The Foundation of RESEARCH
+- Critical Thinking ---- Logic and Conceptual Analysis
+- Kafka ---- Application of Critical Thinking
+- Socrates Key Directional Quote
+ --- Slide 3 --- # RESEARCH CONCEPT --- General
+- RESEARCH CONCEPT --- General
+ --- Slide 4 --- # RESEARCH CONCEPT INCLUDES --- Specific
+- RESEARCH CONCEPT INCLUDES --- Specific
+- Ordinary language definition
+- Search for Sources:
+- Library Search engines (e.g., limiting parameters to peer reviewed journals)
+- Other sources (e.g. references and footnotes cited)
+- Literature Review (determines the current state of research and research gaps your analysis will address)
+- Understanding the logical form of the Argumentative Essay
+- Choosing a primary methodology
+- Quantitative vs Qualitative vs mixed
+- More?????
+ --- Slide 5 --- # Research DefinitionOrdinary Language
+- Research DefinitionOrdinary Language
+- "Re" as a prefix does what??
+- A careful study of a subject, especially in order to discover new facts or information about it (OED)
+ --- Slide 6 --- # Research Definition
+- Research Definition
+- "Re" as a prefix does what??
+- DO AGAIN - SEARCH AGAIN
+ --- Slide 7 --- # Logical Form of the Argumentative Essay
+- Logical Form of the Argumentative Essay
+- Thesis: the main Claim or assertion.
+- Example: A claim is an assertion (which can be a single sentence of more) that demands support: "Climate change is threatening coastal cities." Some call this your thesis.
+- The Thesis summarizes the reasons that support your Claim.
+- Literature Review: A discussion of the current state of affairs reading the Claim. This usually is for a more complex research project and often includes how your Claim addresses a gap in the research.
+- Reasons: Your evidence to support your Claim or thesis
+- Conclusion: a restatement and summary of your Thesis
+- References
+- This Photo by Unknown Author is licensed under CC BY-NC-ND
+ --- Slide 8 --- # Research Sources Overview
+- Research Sources Overview
+- Authorship: Credentials: Check the author's qualifications, expertise, and affiliations and reputation.
+- Publication Source: Peer-Reviewed Journals: Articles published in peer-reviewed journals are generally considered high quality.
+- Date of Publication: Timeliness: Ensure the source is current and relevant to your topic.
+- Bias and Objectivity: Balanced Perspective: Assess whether the source presents information objectively and acknowledges potential biases.
+- Funding Sources: Be cautious of research funded by organizations with a vested interest in the outcomes.
+- References and Citations and methodology
+- Comprehensive Bibliography: Reliable sources cite other high-quality research.
+ --- Slide 9 --- # Key Research Documentation Methods
+- Key Research Documentation Methods
+- APA (American Psychological Association) --- used in social sciences, education, economics, nursing, criminology.
+- MLA (Modern Language Association) --- used in humanities English and literary studies, history, and foreign languages.
+- Chicago Style --- used in publishing, history, art history, anthropology, literature, music.
+- American Medical Association ---- used in medicine and nursing.
+ --- Slide 10 --- # Purposes of Documentation Methods
+- Purposes of Documentation Methods
+- Crediting Sources and establishing authority
+- Facilitating uniformity in research
+- Facilitating academic discourse
+- Avoiding plagiarism by uniform standards of expression
+- Demonstrating research rigor
+ --- Slide 11 --- # Example: MLA and APA --- Documenting a Book Reference Source
+- Example: MLA and APA --- Documenting a Book Reference Source
+- MLA:
+- Smith, H. (1992) Forgotten Truth: The Common Vision of the World's Religions. NY, NY:
+- HarperOne.
+- APA
+- Smith, H. (1992) Forgotten truth: The common vision of the world's religions. NY, NY:
+- HarperOne.
+- What are the differences in citing a book reference??
+ --- Slide 12 --- # Critical Methodologies
+- Critical Methodologies
+- Quantitative Method
+- Discovering FACTS
+- Usually limited to measurement and numerical analyses
+- Statistical Inferences to general conclusions
+- Assumes a fixed sense of reality and a uniformity in human experience
+- Qualitative Method
+- Concerned to understand nuances and complexities
+- Not limited to quantification
+- Use of participant observation and interviews
+- Dependence on the individual's perspective
+- Assumes a complex and nuanced concept of reality
+ --- Slide 13 --- # Illustration of Different Methodologies
+- Illustration of Different Methodologies
+- "When in Doubt, Shout! Paradoxical Influences of Doubt on Proselytizing"
+- A quantitative Analysis on effect of prompting doubt in one's beliefs.
+- By: David Gal and Derek D. Rucker: Kellogg School of Management, Northwestern University
+ --- Slide 14 --- # Key Research Questions
+- Key Research Questions
+- When an individual's faith is questioned, what are the probable results?
+- Example: When one's religious beliefs are shaken, is one more or less likely to advocate those beliefs to others?
+- T
+ --- Slide 15 --- # Quantitative Method Foundation
+- Quantitative Method Foundation
+- Choice of a group to analyze and justification of random and representative sampling
+- Primary use of measurement and statistical analysis
+- Inductive method of drawing general conclusions from a basket of individual cases
+- A general lack of concern for the individual's "Lived Experience" of doubt
+ --- Slide 16 --- # Quantitative Analysis Conclusion:"When in Doubt Shout" Article
+- Quantitative Analysis Conclusion:"When in Doubt Shout" Article
+- "In the research presented in this article, we experimentally examined the link between shaken beliefs and advocacy. One [accepted] perspective is that shaken confidence should decrease proselytizing [others]" (1701).
+- "However, we propose that people might be more likely to advocate their beliefs when their confidence in those beliefs is temporarily shaken. This proposition is based on two assumptions: First, the beliefs and attitudes individuals hold are important in defining their self-concept (such that shaken confidence in a closely held belief functions as a threat), and second, advocacy can serve as a means to bolster these beliefs" (1702).
+- In short, when one's beliefs are threatened one doubles down and tries to convert others to the faith to mitigate their anxiety. Freud would call this a reaction formation: a defense mechanism in which a person expresses the opposite of their true feelings to avoid anxiety. Sartre calls this Self-Deception.
+ --- Slide 17 --- # Qualitative Method
+- Qualitative Method
+- Minimal reliance on numbers and statistics
+- Key focus on the "Lived Experience" of a person and one that is not usually transferable to others
+- Experience is individual and nuanced
+- Like an anthropologist, qualitative research is telling individual stories.
+- Minimal to no reliance on drawing general conclusions from an individual's life experience.
+- Sources of qualitative research usually can include personal documents, e.g., journals, films, recordings, letters.
+- LIFE IS PERSONAL
+ --- Slide 18 --- # Qualitative Method Conclusions
+- Qualitative Method Conclusions
+- The "Lived experience" of Doubt varies with each individual and cannot be determined for a group of people without abbreviating, and thus misrepresenting, reality.
+- The complexity of an individual's life transcends general propositions or characterizations.
+- Instances of doubt can range from a questioning of one's World View (a system of beliefs) to depression and lack of ability to act and live or doubling down.
+- When in Doubt Shout's conclusions are simply one point of view and not a definitive explanation.
+ --- Slide 19 --- # Question: What Fundamental Concepts underly RESEARCH
+- Question: What Fundamental Concepts underly RESEARCH
+- The Concept of Methodic Doubt
+- The Concept of Critical Thinking
+- T
+ --- Slide 20 --- # Methodic Doubt --- Rene Descartes
+- Methodic Doubt --- Rene Descartes
+- Reason now leads me to think that I should hold back my assent from opinions which are not completely certain and indubitable just as carefully as I do from those which are patently false. So, for the purpose of rejecting all my opinions, it will be enough if I find in each of them at least some reason for doubt. (AT 7:18, CSM 2:12)
+ --- Slide 21 --- # Examples of Methodic Doubt
+- Examples of Methodic Doubt
+- "In order to seek truth, it is necessary once in the course of our life to doubt, as far as possible, of all things." René Descartes
+- "Scepticism is the first step towards truth." Denis Diderot
+- "Blind belief in authority is the greatest enemy of truth." Albert Einstein
+- "There are no facts, only interpretations." Friedrich Nietzsche
+- "The truth is rarely pure and never simple." Oscar Wilde
+ --- Slide 22 --- # The Quintessential Concept of Methodic Doubt
+- The Quintessential Concept of Methodic Doubt
+- F. Scott Fitzgerald
+- "The test of a first-rate intelligence is the ability to hold two opposed ideas in the mind at the same time, and still retain the ability to function."
+ --- Slide 23 --- # Question: what underlies all Research??
+- Question: what underlies all Research??
+- CRITICAL THINKING
+ --- Slide 24 --- # Critical Thinking ----A Simplified Understanding
+- Critical Thinking ----A Simplified Understanding
+- CRITICAL THINKING IS THE USE OF:
+- LOGICAL PRINCIPLES AND
+- CONCEPTUAL ANALYSIS
+ --- Slide 25 --- # Critical Thinking --- An Overview
+- Critical Thinking --- An Overview
+- Critical thinking is the intellectually disciplined process of actively and skillfully conceptualizing, applying, analyzing, synthesizing, and/or evaluating information gathered from, or generated by, observation, experience, reflection, reasoning, or communication, as a guide to belief and action (criticalthinking.org.).
+- The ability to think critically, as conceived in this volume, involves three things: ( 1 ) an attitude of being disposed to consider in a thoughtful way the problems and subjects that come within the range of one's experiences, (2) knowledge of the methods of logical inquiry and reasoning, and (3) some skill in applying those methods. Critical thinking calls for a persistent effort to examine any belief or supposed form of knowledge in the light of the evidence that supports it and the further conclusions to which it tends. (Edward Glaser)
+ --- Slide 26 --- # A CRITICAL THINKING EXERCISE
+- A CRITICAL THINKING EXERCISE
+- "A book must be the axe for the frozen sea within us." ---- Kafka
+ --- Slide 27 --- # What is Kafka trying to say?
+- What is Kafka trying to say?
+- Book as a symbol of education?
+- Axe as a symbol of what a book should do?
+- Frozen self as a symbol of alienation from others and hiding the true self?
+ --- Slide 28 --- # What is Kafka trying to say about the value of an Education?
+- What is Kafka trying to say about the value of an Education?
+- Book as a symbol of education?
+- Axe as a symbol of what a book should do?
+- Frozen self as a symbol of alienation from others and hiding the true self?
+- An education should:
+- Challenge our sense of values and beliefs ----- our world view
+- Help each one of us to modify our accepted worldview
+- Ultimately change from a Naïve Worldview to a Critical World view
+ --- Slide 29 --- # KEY DIRECTIONAL QUOTE #1: SOCRATES"The unexamined life is not worth living"
+- KEY DIRECTIONAL QUOTE #1: SOCRATES"The unexamined life is not worth living"
+ --- Slide 30 --- # What is Socrates asking YOU to do?"
+- What is Socrates asking YOU to do?"
+- To Self-Interrogate and ask the following questions:
+- What is the meaning of my life?
+- Am I living out the dream of my parents and peers and not my own dream?
+- Does the value of human life consist in acquiring material possessions?
+- What is the value of a single human life?
+- How ought I to treat others?
+- Do I have a moral obligations to humanity?
+- What am I doing in this classroom?
+ --- Slide 31 --- # A Critical Worldview Begins with Questions
+- A Critical Worldview Begins with Questions
+ --- Slide 32 --- # The beginning of a new WORLDVIEW
+- The beginning of a new WORLDVIEW
+ --- Slide 33 --- # REFERENCES
+- REFERENCES
+- Booth, W. et al (2010). The craft of research (4th Ed.). Chicago, IL: University of Chicago Press.
+- Copi, I. M. & Cohen, C. (2009). Introduction to logic (13th Ed.). Upper Saddle River, NJ. Pearson Prentice Hall.
+- Cresswell, J. W. & Cresswell, J. (2018). Research design: Qualitative, quantitative, and
+- mixed methods approaches (5th Ed.). Los Angeles, CA: Sage.
+- Descartes, R. (1993). Meditations on first philosophy (3rd Ed.; D. A. Cress, Trans.). Indianapolis, IN: Hackett. (Original publication date 1641)
+- Freud, S. (1989). The ego and the id (J. Strachey, Ed.; J. Riviere, Trans.). NY, NY: W.W. Norton & Company. (Original publication date 1923)
+- Gal, D. & Rucker, D. D. (2010). When in doubt shout! Paradoxical influences of doubt on Proselytizing. Psychological Science 21(11), 1701-1707.
+ --- Slide 34 --- # REFERENCES (continued)
+- Hospers, J. (1967). An introduction to philosophical analysis (2nd Ed.). Englewood Cliffs, NJ: Prentice-Hall.
+- Minichiello, V. et al (1972). In-depth interviewing: Researching people. NY, NY: Taylor & Francis.
+- Popkin, R. (2003). The history of scepticism. Oxford: Oxford University Press.
+- Sartre, J. P. (1971). Being and nothingness (H. Barnes, Ed. & Trans.). NY, NY: Citadel Press.
+- Scriven, Michael & Paul, Richard (Summer, 1997). Critical thinking	defined. In Richard Paul & Linda Elder, Critical thinking concepts and tools. Foundation for Critical Thinking:	www.criticalthinking.org
+- Turetzky, Philip (2019). The elements of arguments. Tonawanda, NY: Broadview Press.
+- REFERENCES (continued)

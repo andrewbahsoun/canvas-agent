@@ -1,0 +1,45 @@
+ug_resume_sample_docx
+Date: 2025-09-20
+
+Pete Panther City, State - (123) 456 7890 - professionalemail@email.com - LinkedIn - GitHub - Website
+# EDUCATION Chapman University, Orange, CA	Expected Graduation May 2027 Bachelor of Science in Computer Science	3.85 GPA Minor in Game Development Programming Relevant Coursework:
+- Sample Course Title
+- Do Not Use Acronyms
+- Do Not Use Class Numbers
+- Data Structure and Algorithms
+- Artificial Intelligence
+- iOS Application Development
+- Models of Computing
+# TECHNICAL SKILLS
+- JAVA
+- Python
+- C++
+- C#
+- JavaScript
+- SQL
+- Swift
+- HTML 5
+- 3ds MAX
+# PROFESSIONAL EXPERIENCE Research Assistant | Company or School - City, CA	September 2024 - Present
+- Dates always go in reverse chronological order. Most recent to oldest.
+- Analyze and optimize the code to ensure its efficient with power and performance.
+- Collaborate with faculty and principal researcher to develop and compare new application concepts
+- Develop early prototyping software solutions to ensure its tailored to enable required experiences.
+Software Engineering Intern | Company - City, CA	July 2023 - Present
+- Improved tamper-detection software utilizing C++ to report pirating attempts on Autodesk's products.
+- Partnered with 8 supervisors to develop tools that reduced debugging time by 72%.
+- Collaborated with five Design and Engineering team members to ensure proper integration of experience haptics.
+- Developed game features and fix bugs within Dreamscape's existing framework.
+- Implement optimizations in both high and low-level code in C++ to analyze performance.
+# RELEVANT PROJECTS & EXPERIENCE Name of Project February 2020 - May 2020
+- Bullet point here explaining what you did.
+- Can have multiple projects if you do not have enough professional experience.
+- If you do not have relevant professional experience to your degree, you will want to supplement it with more projects to show how you acquired your technical skills.
+Name of Project February 2020 - May 2020
+- Bullet point here explaining what you did.
+- Have minimum of 3 bullets Name of Project	August 2019 - December 2019
+- Bullet point here explaining what you did.
+Facebook Hackathon | Company - City, CA	March 2019
+- Awarded 2nd place for developing a customizable AR roller-coaster simulator.
+- Information to add additionally
+# ACADEMIC AWARDS AND LEADERSHIP Provost's Scholarship Award	2019, 2020 Dean's List	2018, 2019, 2020 UX Society - President September 2021 - May 2022 Panther Games - Designer September 2020

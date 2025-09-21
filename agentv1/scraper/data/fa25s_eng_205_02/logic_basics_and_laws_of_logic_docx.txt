@@ -1,0 +1,45 @@
+logic_basics_and_laws_of_logic_docx
+Date: 2025-09-20
+
+- Logic Basics and Laws of Logic
+- Logic Basics
+- Logic, Propositions, and Arguments:
+Logic = methods and principles of correct reasoning.
+Reasoning about any matter: to produce Arguments or conclusions that are supported by reasons or Premises. Arguments are conclusions based upon reasons or premises or other propositions.
+- What are propositions? They are building blocks of reasoning.
+A proposition asserts that something is the case, sometimes called a State of Affairs.
+Examples:
+"There is life on some other planet in our galaxy." or "The Instructor is standing before the class." A Proposition declares that something is the case.
+Propositions are either true or false.
+Questions ("Do you know how to play chess?"), Commands ("Come here quickly!"), Exclamations ("Wow!") are neither true nor false.
+- The Construction of Arguments We use Propositions to construct Arguments.
+In any Argument we reason or infer one Proposition from other propositions or premises:
+Premise #1: Socrates is a man.
+Premise #2: All men are mortal.
+Conclusion: Socrates is mortal.
+So an Argument is a set of propositions in which a conclusion is said to follow from the premises.
+- Identifying Premises and Conclusions
+- Premise Indicators: since, because, for, as, follows from, as shown by, inasmuch as.
+Conclusion Indicators: therefore, hence, so, accordingly, consequently, as a result, thus, hence.
+- Finding the Argument
+- Often an Argument is not obvious or may be hidden: the conclusion may precede the premises. E. G. Socrates is going to die. He is like all men. All men live and then die.
+Example of an Argument on Reason and Faith: Luther's Argument "Reason is the greatest enemy that faith has; it never comes to the aid of spiritual things, but more frequently than not struggles against the divine Word, treating with contempt all that emanates from God."
+- Martin Luther, Last Sermon in Wittenburg, 17 January 1546.
+Reconstruction of Luther's Argument: Finding the Argument Premise #1: Reason never perceives spiritual truth or matters of faith.
+Premise #2: Reason opposes the search for spiritual truth or matters of faith.
+Conclusion: Reason is the greatest enemy of matters of faith.
+- Three Basic Laws of Logic The three fundamental laws of logic, also known as the laws of thought, are essential principles that underpin classical logic and rational discourse. They are:
+- The Law of Identity:
+Proposition: A is A.
+Explanation: This law states that an object is identical to itself. In other words, everything is what it is, and not something else. If a statement is true, then it is true.
+Example: If we say "A cat is a cat," we are affirming the identity of the cat with itself.
+- The Law of Non-Contradiction:
+Proposition: A cannot be both A and not A at the same time and in the same respect.
+Explanation: This law asserts that contradictory statements cannot both be true simultaneously. It means that a proposition and its negation cannot both be true.
+Example: The statement "It is raining" and "It is not raining" cannot both be true at the same time and place.
+- The Law of Excluded Middle:
+Proposition: Either A or not A.
+Explanation: This law states that for any proposition, either that proposition is true, or its negation is true. There is no middle ground or third option.
+Example: "The light is either on or off." There is no third option in this binary situation.
+These laws form the foundation of classical logic and are crucial for rational reasoning and argumentation.
+Logic Basics and Laws of Logic

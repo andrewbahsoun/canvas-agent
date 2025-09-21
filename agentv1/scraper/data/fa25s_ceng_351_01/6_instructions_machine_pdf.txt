@@ -1,0 +1,47 @@
+Chapter 6 :: Architecture 6.4-6.6 MIPS instructions Digital Design and Computer Architecture David Money Harris and Sarah L. Harris 6-<1>
+ Machine Language - Computers only understand 1's and 0's - Machine language: binary representation of instructions - 32-bit instructions - Again, simplicity favors regularity: 32-bit data and instructions - Three instruction formats:
+- R-Type: register operands - I-Type: immediate operand - J-Type: for jumping (we'll discuss later) 6-<2>
+ R-Type - Register-type - 3 register operands:
+- rs, rt: source registers - rd: destination register - Other fields:
+- op: the operation code or opcode (0 for R-type instructions) - funct: the function together, the opcode and function tell the computer what operation to perform - shamt: the shift amount for shift instructions, otherwise it's 0 R-Type op rs rt rd shamt funct 6 bits 5 bits 5 bits 5 bits 5 bits 6 bits 6-<3>
+ R-Type Examples Assembly Code Field Values op rs rt rd shamt funct add $s0, $s1, $s20171816032 sub $t0, $t3, $t50111380346 bits 5 bits 5 bits 5 bits 5 bits 6 bits Machine Code op rs rt rd shamt funct 00000010001100101000000000100000 (0x02328020) 00000001011011010100000000100010 (0x016D4022) 6 bits 5 bits 5 bits 5 bits 5 bits 6 bits Note the order of registers in the assembly code:
+add rd, rs, rt 6-<5>
+ I-Type - Immediate-type - 3 operands:
+- rs, rt: register operands - imm: 16-bit two's complement immediate - Other fields:
+- op: the opcode - Simplicity favors regularity: all instructions have opcode - Operation is completely determined by the opcode I-Type op rs rt imm 6 bits 5 bits 5 bits 16 bits 6-<6>
+ I-Type Examples Assembly Code Field Values op rs rt imm addi $s0, $s1, 5817165 addi $t0, $s3, -128198 -12 lw $t2, 32($0) 3501032 sw $s1, 4($t1) 4391746 bits 5 bits 5 bits 16 bits Machine Code Note the differing order of op rs rt imm registers in the assembly and 00100010001100000000000000000101 (0x22300005) machine codes:
+(0x2268FFF4) 00100010011010001111111111110100 addi rt, rs, imm (0x8C0A0020) 10001100000010100000000000100000 lw rt, imm(rs) (0xAD310004) 10101101001100010000000000000100 sw rt, imm(rs) 6 bits 5 bits 5 bits 16 bits 6-<7>
+ Machine Language: J-Type - Jump-type - 26-bit address operand ( ) addr - Used for jump instructions ( ) j J-Type op addr 6 bits 26 bits 6-<8>
+ Review: Instruction Formats R-Type op rs rt rd shamt funct 6 bits 5 bits 5 bits 5 bits 5 bits 6 bits I-Type op rs rt imm 6 bits 5 bits 5 bits 16 bits J-Type op addr 6 bits 26 bits 6-<9>
+ Bit number of different fields in instructions - Opcode:31-26 - RS:25-21 These will be used in single - RT: 20-16 cycle processor in Ch.7 - RD(R type only):15-11 - FUNCT(R type): 5- 0 - Immediate (I type): 15- 0 - Address(J type): 25-03130292827262524232221201918171615141312111009080706050403020100 OP RS RT RD SHAMT FUNCT R type 3130292827262524232221201918171615141312111009080706050403020100 OP RS RT 16 bit Address/Immediate 3130292827262524232221201918171615141312111009080706050403020100 I type OP Address 6-<10>
+ The Power of the Stored Program - 32-bit instructions and data stored in memory - Sequence of instructions: only difference between two applications (for example, a text editor and a video game) - To run a new program:
+These will be used in single - No rewiring required cycle processor in Ch.7 - Simply store new program in memory - The processor hardware executes the program:
+- fetches (reads) the instructions from memory in sequence - performs the specified operation - The program counter (PC) keeps track of the current instruction - In MIPS, programs typically start at memory address 0x004000006-<11>
+ The Stored Program Assembly Code Machine Code lw $t2, 32($0) 0x8C0A0020 add $s0, $s1, $s20x02328020 addi $t0, $s3, -120x2268FFF4 sub $t0, $t3, $t50x016D4022 Stored Program Address Instructions 0040000C 016 D 4022004000082268 F F F 40040000402328020004000008 C 0 A 0020 PC 6-<12> Main Memory
+ Interpreting Machine Language Code - Start with opcode - Opcode tells how to parse the remaining bits - If opcode is all 0's - R-type instruction - Function bits tell what instruction it is - Otherwise - opcode tells what instruction it is Machine Code Field Values Assembly Code op rs rt imm op rs rt imm (0x2237FFF1) 0010001000110111111111111111000181723 -15 addi $s7, $s1, -152237 F F F 1 op rs rt rd shamt funct op rs rt rd shamt funct (0x02F34022) 00000010111100110100000000100010023198034 sub $t0, $s7, $s302 F 340226-<13>
+ Programming - High-level languages:
+- e.g., C, Java, Python - Written at higher level of abstraction - Common high-level software constructs:
+- if/else statements - for loops - while loops - arrays - function calls
+ Logical Instructions , , , - and or xor nor - and: useful for masking bits - Masking all but the least significant byte of a value:
+0xF234012F AND 0x000000FF = 0x0000002F - or: useful for combining bit fields - Combine 0xF2340000 with 0x000012BC:
+0xF2340000 OR 0x000012BC = 0xF23412BC - nor: useful for inverting bits:
+- A NOR $0 = NOT A , , - andi ori xori - 16-bit immediate is zero-extended (not sign-extended) - nori not needed
+ Logical Instructions Example 1 Source Registers $s111111111111111110000000000000000 $s201000110101000011111000010110111 Assembly Code Result and $s3, $s1, $s2 $s3 or $s4, $s1, $s2 $s4 xor $s5, $s1, $s2 $s5 nor $s6, $s1, $s2 $s6
+ Logical Instructions Example 1 Source Registers $s111111111111111110000000000000000 $s201000110101000011111000010110111 Assembly Code Result and $s3, $s1, $s2 $s301000110101000010000000000000000 or $s4, $s1, $s2 $s411111111111111111111000010110111 xor $s5, $s1, $s2 $s510111001010111101111000010110111 nor $s6, $s1, $s2 $s600000000000000000000111101001000
+ Logical Instructions Example 2 Source Values $s100000000000000000000000011111111 imm 00000000000000001111101000110100 zero-extended Assembly Code Result andi $s2, $s1, 0xFA34 $s2 ori $s3, $s1, 0xFA34 $s3 xori $s4, $s1, 0xFA34 $s4
+ Logical Instructions Example 2 Source Values $s100000000000000000000000011111111 imm 00000000000000001111101000110100 zero-extended Assembly Code Result andi $s2, $s1, 0xFA34 $s200000000000000000000000000110100 ori $s3, $s1, 0xFA34 $s300000000000000001111101011111111 xori $s4, $s1, 0xFA34 $s400000000000000001111101011001011
+ Shift Instructions shift left logical - sll:
+- Example: sll $t0, $t1, 5 # $t0 <= $t1 << 5 shift right logical - srl:
+- Example: srl $t0, $t1, 5 # $t0 <= $t1 >> 5 shift right arithmetic - sra:
+- Example: sra $t0, $t1, 5 # $t0 <= $t1 >>> 5
+ Shift Instructions Assembly Code Field Values op rs rt rd shamt funct sll $t0, $s1, 20017820 srl $s2, $s1, 200171822 sra $s3, $s1, 2001719236 bits 5 bits 5 bits 5 bits 5 bits 6 bits Machine Code op rs rt rd shamt funct 00000000000100010100000010000000 (0x00114080) 00000000000100011001000010000010 (0x00119082) 00000000000100011001100010000011 (0x00119883) 6 bits 5 bits 5 bits 5 bits 5 bits 6 bits
+ Generating Constants - 16-bit constants using :
+addi C Code MIPS assembly code // int is a 32-bit signed word # $s0 = a int a = 0x4f3c; addi $s0, $0, 0x4f3c - 32-bit constants using load upper immediate ( ) and :
+lui ori C Code MIPS assembly code # $s0 = a int a = 0xFEDC8765; lui $s0, 0xFEDC ori $s0, $s0, 0x8765
+ Branching - Execute instructions out of sequence - Types of branches:
+- Conditional - branch if equal (beq) - branch if not equal (bne) - Unconditional - jump (j) - jump register (jr) - jump and link (jal)
+ Conditional Branching (beq) # MIPS assembly addi $s0, $0, 4 # $s0 = 0 + 4 = 4 addi $s1, $0, 1 # $s1 = 0 + 1 = 1 sll $s1, $s1, 2 # $s1 = 1 << 2 = 4 beq $s0, $s1, target # branch is taken addi $s1, $s1, 1 # not executed sub $s1, $s1, $s0 # not executed target: # label add $s1, $s1, $s0 # $s1 = 4 + 4 = 8 Labels indicate instruction location. They can't be reserved words and must be followed by colon (:)
+ The Branch Not Taken (bne) # MIPS assembly addi $s0, $0, 4 # $s0 = 0 + 4 = 4 addi $s1, $0, 1 # $s1 = 0 + 1 = 1 sll $s1, $s1, 2 # $s1 = 1 << 2 = 4 bne $s0, $s1, target # branch not taken addi $s1, $s1, 1 # $s1 = 4 + 1 = 5 sub $s1, $s1, $s0 # $s1 = 5 - 4 = 1 target:
+add $s1, $s1, $s0 # $s1 = 1 + 4 = 5
+ Unconditional Branching (j) # MIPS assembly addi $s0, $0, 4 # $s0 = 4 addi $s1, $0, 1 # $s1 = 1 j target # jump to target sra $s1, $s1, 2 # not executed addi $s1, $s1, 1 # not executed sub $s1, $s1, $s0 # not executed target:
+add $s1, $s1, $s0 # $s1 = 1 + 4 = 5

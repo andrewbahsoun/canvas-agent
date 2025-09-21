@@ -1,0 +1,68 @@
+Guy Kawasaki's Pitch Deck Framework A pitch deck is not just a sales tool; it is a decision document. It forces you to articulate a clear problem, a differentiated solution, the assumptions behind your business model, and an executable plan. Investors use it to decide whether to learn more; you use it to test your hypotheses about customers, value, distribution, and economics. Guy Kawasaki's approach is popular because it is simple, disciplined, and focused on what matters most under uncertainty.
+The 10/20/30 rule - 10 slides: Enough to cover the essentials without overwhelming your audience.
+- 20 minutes: Assume tech issues and interruptions; keep it tight and leave time for Q&A.
+- 30-point font: Forces clarity and brevity; if text won't fit, you're saying too much.
+The 10 essential slides (what to cover and why it matters) 1. Title a. What: Company name, your name/title, contact info, crisp one-line value proposition.
+b. Decision lens: Sets context. Signals focus and professionalism.
+2. Problem/Opportunity a. What: Who has the pain, how they experience it today, how big/urgent it is, why now.
+b. Evidence: Customer quotes, data, workflow snapshots.
+c. Decision lens: Hypothesis about a real, valuable problem worth solving.
+3. Value Proposition a. What: What you do and the specific benefit ("so what").
+b. Keep it plain: "We help X do Y so they can achieve Z." c. Decision lens: Fit between problem and solution; what outcome improves.
+4. Underlying Magic
+ a. What: Your differentiator-tech, process, data, IP, unique insight. Show a demo or visual.
+b. Evidence: Prototype screenshots, architecture, proof-of-concept results.
+c. Decision lens: Why you can win; what is hard to copy.
+5. Business Model a. What: How you make money and from whom; pricing; unit economics basics.
+b. Define: Unit economics = revenue and cost per unit/customer (e.g., LTV vs.
+CAC).
+c. Decision lens: Path to sustainable margins and scale.
+6. Go-to-Market (GTM) a. What: How you will acquire and retain customers-channels, sales motion, messaging.
+b. Examples: Direct sales, product-led growth, partnerships, marketplaces, paid ads.
+c. Decision lens: Repeatable, cost-effective acquisition and retention strategy.
+7. Competitive Landscape a. What: Alternatives and substitutes (including "do nothing"); your positioning and defensibility.
+b. Visuals: 2x2, feature matrix, or "jobs-to-be-done" comparison.
+c. Decision lens: Market structure and how you maintain advantages over time.
+8. Team a. What: Founders and key hires; relevant experience; why this team is uniquely qualified.
+b. Include: Advisors only if materially helpful; highlight gaps you plan to fill.
+c. Decision lens: Execution capability and learning velocity.
+9. Financials and Key Metrics a. What: 3-5-year high-level projections; drivers and assumptions; current traction.
+b. Metrics (as applicable): Revenue, growth rate, churn/retention, CAC, LTV, payback, gross margin.
+c. Decision lens: Are assumptions credible? Do early signals support the model?
+ 10. Current Status, Roadmap, and Use of Funds a. What: Milestones achieved; what's next; how much you're raising; runway;
+milestone-based use of funds.
+b. Example: "Raising $2M for 18 months to reach 50 paying customers, SOC 2 compliance, Series A readiness." c. Decision lens: Clear plan to de-risk the business with this capital.
+How to deliver it well - Aim for a follow-up, not a full close. The goal is interest and a second meeting.
+- Lead with clarity. Minimize jargon; one idea per slide; high-contrast visuals; few fonts/colors.
+- Show, don't tell. If possible, demo early; use simple charts over dense tables.
+- Be credible. Ground claims in pilots, benchmarks, or references; never ignore competitors.
+- Rehearse and time-box. One primary presenter; crisp handoffs; leave time for Q&A.
+- Shareable format. Export to PDF; ensure links and videos have backups (GIFs or screenshots).
+Market sizing and evidence (keep it real) - TAM/SAM/SOM: Total Addressable Market (theoretical), Serviceable Available Market (your reachable segment), Serviceable Obtainable Market (what you can realistically capture).
+- Start bottom-up: (# target customers) x (annual price or spend) x (expected market capture %). Avoid top-down percentages without a path.
+- Traction beats theory: Pilots, LOIs, waitlists, and early revenue speak louder than large TAM slides.
+Decision-making lens: What each slide tests - Problem: Is there a real, urgent pain?
+- Solution/Value: Does it solve the pain in a valuable way?
+ - Magic: Is your advantage durable?
+- Business model: Can you make money per customer?
+- GTM: Can you find and keep customers at a reasonable cost?
+- Competition: Can you win and stay differentiated?
+- Team: Can you execute and learn fast?
+- Financials: Do the numbers hang together?
+- Use of funds: Will this round hit milestones that unlock the next stage?
+Common pitfalls to avoid - Too many slides, too much text, tiny fonts.
+- Hand-wavy market sizing or implausible hockey-stick projections without drivers.
+- Ignoring competitors, regulatory risks, or dependencies.
+- Burying the ask: Always state how much you're raising, expected runway, and what milestones it funds.
+- Over-indexing on features; under-explaining distribution and economics.
+Quick checklist before you present - Story arc is clear: problem → solution → why you win → how you reach customers → how you make money → proof → plan.
+- Slides pass the "glance test": each is understandable in 3-5 seconds.
+- Numbers are consistent across slides and backup.
+- You can explain every assumption and metric simply.
+- Backup slides ready: detailed financials, cohort charts, pipeline, tech architecture, security/compliance, regulatory.
+What investors often ask (prepare concise answers) - Who is the ideal customer and how do you reach them?
+- Why now? What changed in tech, regulation, or behavior?
+ - What's your wedge and expansion path (land-and-expand, network effects, etc.)?
+- What are the unit economics and payback period by channel?
+- What milestones will this round achieve, and what will a successful next round look like?
+Summary Kawasaki's framework forces focus and discipline. Build a simple, visual story that proves there's a real problem, a differentiated solution, a credible way to reach and retain customers, sound unit economics, and a team that can execute. Keep it to 10 slides, deliver it in 20 minutes, and use at least 30-point font. If your pitch earns a second meeting, it's working.

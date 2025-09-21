@@ -1,0 +1,212 @@
+l01_the_relational_model
+Date: 2025-09-20
+
+--- Slide 1 ---
+- Database Systems: The Relational Model
+- CPSC 408
+ --- Slide 2 ---
+- Pre-Class Question
+- What do YOU think a database is defined as?
+- (Try to think of an answer, we'll try out a couple!) [Notes] Emphasis on Organized and Structured!
+ --- Slide 3 ---
+- Definition of a Database
+- A Database is an organized collection of structured data [Notes] Emphasis on Organized and Structured!
+ --- Slide 4 ---
+- Definition of a Database
+- A Database is an organized collection of structured data
+- A Database is a collection of data managed by a database management system (DBMS) [Notes] Database management system: the leash you put on your wild dog (data) to keep it under strict rules and make sure it doesn't run away from you
+ --- Slide 5 ---
+- Features of a Database Management System (DBMS) [Notes] What are the features of these dbms things?
+ --- Slide 6 ---
+- Features of a Database Management System (DBMS)
+- Allows users to create new databases and their logical structures using a data-definition language [Notes] LOGICAL STRUCTURES -> SCHEMA, Also emphasize the DDL
+ --- Slide 7 ---
+- Features of a Database Management System (DBMS)
+- Allows users to create new databases and their logical structures (SCHEMA) using a data-definition language [Notes] SCHEMAAAA
+ --- Slide 8 ---
+- Features of a Database Management System (DBMS)
+- Allows users to create new databases and their schema using a data-definition language
+- Allows the user to question the data as well as modify it [Notes] Question the Data -> QUERY, also emphasize modify it using a data manipulation language
+ --- Slide 9 ---
+- Features of a Database Management System (DBMS)
+- Allows users to create new databases and their schema using a data-definition language
+- Allows the user to question (QUERY) the data as well as modify it.
+[Notes] QUERYYYYYY
+ --- Slide 10 ---
+- Features of a Database Management System (DBMS)
+- Allows users to create new databases and their schema using a data-definition language
+- Allows the user to query the data as well as modify it
+- Support store of large amounts of data over long periods of time [Notes] Long periods of time is important! Maybe talk about your legacy systems?
+ --- Slide 11 ---
+- Features of a Database Management System (DBMS)
+- Allows users to create new databases and their schema using a data-definition language
+- Allows the user to query the data as well as modify it
+- Support store of large amounts of data over long periods of time
+- Ensure durability of the stored data [Notes] Backups, cloud shit, snapshots, etc
+ --- Slide 12 ---
+- Features of a Database Management System (DBMS)
+- Allows users to create new databases and their schema using a data-definition language
+- Allows the user to query the data as well as modify it
+- Support store of large amounts of data over long periods of time
+- Ensure durability of the stored data
+- Control access to data from several users at the same time [Notes] Super important! Make sure two people aren't trying to both read and write to the same data at the same time!
+ --- Slide 13 ---
+- Databases of Old:
+- The File System [Notes] What did we do before all the smart people came along and fixed it?
+ --- Slide 14 ---
+- File Systems
+- Here's an example of a scenario that existed before we standardized our database practice:
+- Two users using the same Excel Spreadsheet to keep track of orders for their small business, and storing the invoice PDFs in a folder on their front desk computer.
+[Notes] Think windows explorer/navigation. It did do its job, but it made life very hard for the users and maintainers.
+ --- Slide 15 ---
+- File Systems
+- Only sorta able to store large amounts of data
+- No durability
+- No plan for a backup/restore
+- No query language
+- Trying to find a specific invoice would be difficult
+- No access control
+- Bad actors could gain access to the data from the machine, no software is preventing it.
+[Notes] Think windows explorer/navigation. It did do its job, but it made life very hard for the users and maintainers.
+ --- Slide 16 ---
+- File Systems
+- Another downside: In terms of schema definition, you are limited to a hierarchical model [Notes] What does a hierarchical model look like? Again, windows file explorer
+ --- Slide 17 ---
+- Hierarchical Model
+- root1
+- level1
+- level1
+- level2
+- level3
+- level2
+- level3
+- The Hierarchical Model is a tree-like structure, that is inflexible as it is limited to a one-to-many relationship (one parent folder, many child folders) [Notes] Emphasize the one-to-many. What other relationships would we need to represent that are limited here? Many-to-one mostly. Emphasize that to do many-to-one here, we would need duplicates of the one underneath that adds wasted space to file system, and any time you'd have to edit the one you'd have to go in and edit them all, and so on.
+ --- Slide 18 ---
+- Databases of Now:
+- The Relational Model
+ --- Slide 19 ---
+- "A Relational Model of Data for Large Shared Data Banks" E.F. Codd (1969)
+- The first commercial implementations of the Relational model were introduced in 1970 with Oracle DBMA and the SQL/DS system introduced by IBM
+- Nowadays, this model is still used by most popular commercial players, such as Microsoft SQL Server + Access, IBM Informix, MySQL, SQLite, and so on. It is the standard for most generic commercial solutions today.
+ --- Slide 20 ---
+- The Relational Model
+- The relational model represents data as tables. These tables are called Relations
+- When you think of Relational Databases, the Relational Model, etc. think tables!
+- We can use relational logic to manipulate the data in these tables.
+ --- Slide 21 ---
+- Relational Model
+- The database is a collection of tables
+- The tables, or relations, are a collection of rows of data
+- The rows, or tuples, are an instance of an object you are storing information about.
+- Each relation has a set of columns, or attributes, that dictate what information will be stored for each tuple.
+[Notes] Bring it back out to the table we made last week, whole sheet is a relation, i am a tuple. movies/games are attributes.
+ --- Slide 22 ---
+- Relational Model [Notes] Bring it back out to the table we made last week, whole sheet is a relation, i am a tuple. movies/games are attributes.
+ --- Slide 23 ---
+- Relational Model
+- The domain of an attribute is the set of values that are allowed
+- For example, a name attribute would be a string of characters. A phone number would be a 10 digit number. We want to make sure that all values within a column have the same domain.
+[Notes] Bring it back out to the table we made last week, whole sheet is a relation, i am a tuple. movies/games are attributes.
+ --- Slide 24 ---
+- Relational Model
+- A relation schema is an annotation used to describe a relation, either in table form or in written form.
+- In the relation schema below, we are defining relation R as a table with attributes A1, A2, A3, and A4.
+- R(A1, A2, A3, A4)
+ --- Slide 25 ---
+- Relational Model
+- We could annotate this table as
+- Student(Roll_No, Name, Age, Phone)
+- Both representations are relational schemas, the above being used for shorthand to quickly define a table in text formats.
+[Notes] Bring it back out to the table we made last week, whole sheet is a relation, i am a tuple. movies/games are attributes.
+ --- Slide 26 ---
+- Relational Model
+- A Database Schema is a set of relation schemas.
+- This set of schemas describes the entirety of our database, including all tables and their attributes. Again, this can be either shown in table format or in written annotations.
+[Notes] Bring it back out to the table we made last week, whole sheet is a relation, i am a tuple. movies/games are attributes.
+ --- Slide 27 ---
+- Relational Model
+ --- Slide 28 ---
+- Relational Model
+- order_items(order_id, product_id, quantity)
+- orders(id, user_id, status, created_at)
+- users(id, full_name, email, gender, date_of_birth, country_code, created_at)
+- products(id, merchant_id, name, price, status, created_at)
+- merchants(id, merchant_name, admin_id, country_code, created_at)
+- countries(code, name, continent_name)
+ --- Slide 29 ---
+- The Data within the Database
+ --- Slide 30 ---
+- Relational Model - Entities
+- The topics we have covered so far describe the formatting of a row, column, table, and database. These ideas are helpful to have us read and navigate the parts of our system.
+- Now, let's describe the data stored within
+ --- Slide 31 ---
+- Relational Model - Entities
+- An entity is a type of item being stored in our database.
+- Entities are defined by the collection of attributes used to describe them, and that are not also describing something else.
+- It can be helpful to think of an entity as a class in an object-oriented programming language.
+ --- Slide 32 ---
+- Relational Model - Entities
+- If we were making an academic database application for the university, some entities could be:
+- Students
+- Classrooms
+- Courses
+- Subjects
+- Lessons
+- Assignments
+ --- Slide 33 ---
+- Relational Model
+- Rows represent instances of our entities
+- Think of this as instantiating a class, each row is the entity with all of its data present.
+- In the example, David and Benjamin are each an instance of the Student entity.
+[Notes] Keys: How do we know a Tuple is distinct from another Tuple? How do we prevent another Sierra Clibourne from joining our table? If another Sierra Clibourne is here and we query the relation for what Sierra's favorite movie is, how will it pick between mine and theirs? KEYS! The key is the defining attribute of a relation. A Key can be one attribute or any number of attributes. Best practice is to make a unique alphanumeric value for each instance that is untethered from any other attribute. 
+ Relationships: How do we know what things from other tables are related to things in this current table? Hint at foreign keys.
+ --- Slide 34 ---
+- Relational Model
+- Say, for example, two Sierra Clibournes were teaching at Chapman. How would we know which one was teaching CPSC408 using data from our database? We need some sort of attribute that is unique to each teacher.
+- A key is an attribute (or set of attributes) that uniquely identifies a row.
+ --- Slide 35 ---
+- Relational Model
+- For this table below, our key can be assumed to be Roll_No.
+[Notes] Keys: How do we know a Tuple is distinct from another Tuple? How do we prevent another Sierra Clibourne from joining our table? If another Sierra Clibourne is here and we query the relation for what Sierra's favorite movie is, how will it pick between mine and theirs? KEYS! The key is the defining attribute of a relation. A Key can be one attribute or any number of attributes. Best practice is to make a unique alphanumeric value for each instance that is untethered from any other attribute. 
+ Relationships: How do we know what things from other tables are related to things in this current table? Hint at foreign keys.
+ --- Slide 36 ---
+- Relational Model
+- A relationship is how we codify how two entities can interact with one another.
+- For example, teachers teach classes, students enroll in classes, classes can be held in classrooms.
+- We call this dance of entities and relationships the Entity-Relationship Model.
+ --- Slide 37 ---
+- Review
+- Q: What do we call this?
+ --- Slide 38 ---
+- Review
+- Q: What do we call this? Table or Relation
+ --- Slide 39 ---
+- Review
+- Q: What do we call this?
+ --- Slide 40 ---
+- Review
+- Q: What do we call this? Column or Attribute
+ --- Slide 41 ---
+- Review
+- Q: What do we call this?
+ --- Slide 42 ---
+- Review
+- Q: What do we call this? Row or Tuple
+ --- Slide 43 ---
+- Review
+- Q: What do we call this? (The column(s) that we use to uniquely identify rows)
+ --- Slide 44 ---
+- Review
+- Q: What do we call this? The Key
+ --- Slide 45 ---
+- Review
+- Q: What do we call this? (What kind of data this specific table is storing)
+ --- Slide 46 ---
+- Review
+- Q: What do we call this? The Entity
+ --- Slide 47 ---
+- Review
+- Q: What do we call this?
+ --- Slide 48 ---
+- Review
+- Q: What do we call this? The Relationship between these entities
