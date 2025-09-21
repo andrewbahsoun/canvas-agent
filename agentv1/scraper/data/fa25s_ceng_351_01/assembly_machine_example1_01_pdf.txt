@@ -1,3 +1,0 @@
-73 i 6.11 Convert the following MIPS assembly code into machine language. Write the instructions in hexadecimal.
->addi $s0, $0, 73 - sw $t1, -7($t2) i = - +p - sub $-t1, $s7, $s2 imm 25 add i It is 16 X , d a I , 500000000 -6 i " opcode - 0x20100049 G imm(rs) (7) St Sur & 15 · #loo IIII 00 lol 111111111 ! , !
-imm Y rE(SD opcode ~ S(SE2) OxAD49FFF9

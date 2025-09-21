@@ -1,4 +1,0 @@
-6.14 Convert the following program from machine language into MIPS assembly language.
-The numbers on the left are the instruction addresses in memory, and the numbers on the right give the instruction at that address. Then reverse engineer a high-level program that would compile into this assembly language routine and write it. Explain in words what the program does. $a0 is the input, and it initially contains a positive number, n. $v0 is the output.
-0x004000000x200800000x004000040x200900010x004000080x0089502a 0x0040000c 0x154000030x004000100x010940200x004000140x212900020x004000180x081000020x0040001c 0x010010200x004000200x03E00008
- Interview Q 6.1 Write the MIPS assembly code for swapping the contents of two registers, $t0 and $t1. You may not use any other registers.

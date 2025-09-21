@@ -1,2 +1,0 @@
-Given the single-cycle processor design below, implement the bne (branch if not equal) instruction, with an opcode of 000101. The instruction format is the same as the beq instruction, but the branch is taken if the operands are not equal. Update the controller truth table appropriately and show any changes to the datapath if necessary. Explain your design.
-Instruction Op RegWrite RegDst AluSrc Branch MemWrite MemtoReg ALUOp 5:01:0 R-type 00000011000010 lw 10001110100000 sw 1010110 X 101 X 00 beq 0001000 X 010 X 01
